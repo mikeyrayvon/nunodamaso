@@ -1,0 +1,31 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Settings",
+        "useAsTitle" : true
+      }
+    },
+    "mailchimp_action" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Mailchimp Action"
+      }
+    },
+    "instagram_handle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Instagram Username"
+      }
+    },
+    "footer_contact" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, hyperlink",
+        "label" : "Footer Contact"
+      }
+    }
+  }
+}

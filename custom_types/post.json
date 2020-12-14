@@ -1,0 +1,60 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "unique-identifier-for-post-url"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Title",
+        "useAsTitle" : true
+      }
+    },
+    "main_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : null
+        },
+        "thumbnails" : [ ],
+        "label" : "Main Image"
+      }
+    },
+    "body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Body"
+      }
+    },
+    "gallery" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          },
+          "caption" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "em",
+              "label" : "Caption"
+            }
+          }
+        },
+        "label" : "Gallery"
+      }
+    }
+  }
+}

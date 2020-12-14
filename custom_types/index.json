@@ -1,0 +1,16 @@
+[{
+  "id": "landing",
+  "name": "Landing",
+  "repeatable": false,
+  "value": "landing.json"
+}, {
+  "id": "post",
+  "name": "Post",
+  "repeatable": true,
+  "value": "post.json"
+}, {
+  "id": "settings",
+  "name": "Settings",
+  "repeatable": false,
+  "value": "settings.json"
+}]
