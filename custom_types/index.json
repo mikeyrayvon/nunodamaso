@@ -4,10 +4,25 @@
   "repeatable": false,
   "value": "landing.json"
 }, {
-  "id": "post",
-  "name": "Post",
+  "id": "philosophy",
+  "name": "Philosophy",
+  "repeatable": false,
+  "value": "philosophy.json"
+}, {
+  "id": "history",
+  "name": "History",
+  "repeatable": false,
+  "value": "history.json"
+}, {
+  "id": "journal",
+  "name": "Journal",
   "repeatable": true,
-  "value": "post.json"
+  "value": "journal.json"
+}, {
+  "id": "event",
+  "name": "Event",
+  "repeatable": true,
+  "value": "event.json"
 }, {
   "id": "settings",
   "name": "Settings",
