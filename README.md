@@ -1,42 +1,36 @@
-# Prismic Next.js Blog Site Example
-> [Next.js](https://nextjs.org/) example blog project with content managed in [Prismic](https://prismic.io)
+# Discipline Starter for Next.js Website with Prismic CMS
+[Next.js](https://nextjs.org/) example blog project with content managed in [Prismic](https://prismic.io).
 
-## Check out our article for a step by step guide to getting this project up and running
-> [Prismic project guide](https://user-guides.prismic.io/en/articles/2882569-sample-blog-with-api-based-cms-in-next-js)
+Based on the [Prismic Next.js Blog Site Example](https://github.com/prismicio/nextjs-blog)
+
+[Prismic project guide](https://user-guides.prismic.io/en/articles/2882569-sample-blog-with-api-based-cms-in-next-js)
 
 
-## Install the prismic-cli
+## Installation Flow
+### Clone this repo
 ```
-npm install -g prismic-cli
+git clone https://github.com/mikeyrayvon/discipline-nextjs-prismic.git my-project
+cd my-project
 ```
 
-## Run the theme command
-This will create a new Prismic content repository, setup the custom types, and install the project code
-```
-prismic theme --theme-url https://github.com/prismicio/nextjs-blog
+### Create Prismic repo
+Create a new repo in Prismic and create Custom Types with the JSON from the `custom_types` directory.
 
+### Make .env
+Duplicate `.env.example` as `.env.local` and update the `API_ENDPOINT` value with the endpoint from your Prismic repo.
+
+### Install node packages
 ```
-## Run the project
+yarn
 ```
-npm run dev
+
+### Run the project
+```
+yarn dev
 ```
 Then you can access it at [http://localhost:3000](http://localhost:3000).
 
 
-## Deploys made easy with Vercel
-[Sign up to Vercel](https://vercel.com/login) and follow the [deployment documentation](https://vercel.com/docs/platform/deployments) to quickly deploy your project.
-
-
-### Learn more about using Prismic with Nextjs
-
-[Prismic + Next.js documentation](https://prismic.io/docs/reactjs/getting-started/prismic-nextjs).
-
-### License
-
-This software is licensed under the Apache 2 license, quoted below.
-
-Copyright 2019 Prismic (https://prismic.io).
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+## Resources
+- [Prismic project guide](https://user-guides.prismic.io/en/articles/2882569-sample-blog-with-api-based-cms-in-next-js)
+- [Prismic + Next.js documentation](https://prismic.io/docs/reactjs/getting-started/prismic-nextjs)
