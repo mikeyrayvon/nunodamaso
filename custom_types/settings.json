@@ -8,28 +8,6 @@
         "useAsTitle": true
       }
     },
-    "site_title": {
-      "type": "Text",
-      "config": {
-        "label": "Site Title",
-        "placeholder": "Nuno Damaso",
-      }
-    },
-    "site_description": {
-      "type": "Text",
-      "config": {
-        "label": "Site Description",
-        "placeholder": "Holistic Health Coaching",
-      }
-    },
-    "subscription_prompt": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Subscription Prompt",
-        "placeholder": "Please subscribe..."
-      }
-    },
     "mailchimp_action": {
       "type": "Text",
       "config": {
