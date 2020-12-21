@@ -4,14 +4,13 @@ import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 import { hrefResolver, linkResolver } from 'prismic-configuration'
-import { Client } from 'utils/prismicHelpers'
+import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
 import Container from 'components/Container'
 import Slider from 'components/Slider'
 
-const Post = ({ settings, doc }) => {
-
+const Post = ({ settings, doc, preview, lang }) => {
   if (doc && doc.data) {
 
     let title = 'Nuno Damaso'
@@ -21,7 +20,11 @@ const Post = ({ settings, doc }) => {
     }
 
     return (
-      <Layout settings={settings}>
+      <Layout
+        settings={settings}
+        lang={lang}
+        isPreview={preview.isActive}
+      >
         <Head>
           <title>{title}</title>
         </Head>
@@ -43,18 +46,37 @@ const Post = ({ settings, doc }) => {
   return null;
 };
 
-export async function getStaticProps({ params, preview = null, previewData = {} }) {
+export async function getStaticProps({
+  params,
+  preview = null,
+  previewData = {},
+  locale,
+  locales
+}) {
+
   const { ref } = previewData
+  const isPreview = preview || false
+  const country = locale === 'en' ? '-us' : '-ch'
+  const localeCode = locale + country
 
   const settings = await Client().getSingle('settings') || {}
 
-  const doc = await Client().getByUID('journal', params.uid, ref ? { ref } : null) || {}
+  const doc = await Client().getByUID('journal', params.uid, ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+
+  const { currentLang, isMainLanguage} = manageLocale(locales, localeCode)
 
   return {
     props: {
       settings,
-      preview,
-      doc
+      doc,
+      preview: {
+        isActive: isPreview,
+        activeRef: ref ? ref : null,
+      },
+      lang:{
+        currentLang,
+        isMainLanguage,
+      }
     }
   }
 }
@@ -65,7 +87,8 @@ export async function getStaticPaths() {
   );
   return {
     paths: documents.map((doc) => {
-      return { params: { uid: doc.uid }, locale: doc.lang };
+      const locale = doc.lang.substring(0,2)
+      return { params: { uid: doc.uid }, locale };
     }),
     fallback: false,
   };
