@@ -38,14 +38,14 @@ const Footer = ({ settings }) => {
                 RichText.render(settings.data.address, linkResolver)
               }
               {settings.data.google_maps &&
-                <a className='text-blue text-sm mt-2' href={settings.data.google_maps}>View on Google Maps</a>
+                <a className='text-blue text-sm mt-2' href={settings.data.google_maps}>{ t('google-maps') }</a>
               }
             </div>
           </div>
         }
         <div className='mt-32 -mx-6'>
           <div className='px-6'>
-            <span>&copy; {year} Nuno Damaso. {t('rights')}</span>
+            <span>&copy; { year } Nuno Damaso. { t('rights') }</span>
           </div>
         </div>
       </Container>
