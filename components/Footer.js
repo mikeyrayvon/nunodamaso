@@ -21,7 +21,7 @@ const Footer = ({ settings }) => {
             <span className='block'>Holistic Health Coaching</span>
           </div>
           <div className='w-full sm:w-1/2 mb-4 px-6'>
-            <img src='images/yinyang.svg' />
+            <img src='/images/yinyang.svg' />
           </div>
         </div>
 
