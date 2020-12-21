@@ -11,7 +11,10 @@ export const accessToken = process.env.ACCESS_TOKEN
 // Manages the url links to internal Prismic documents
 export const linkResolver = (doc) => {
   if (doc.type === 'post') {
-    return `/posts/${doc.uid}`
+    return `/${doc.lang}/journal/${doc.uid}`
+  }
+  if (doc.type === 'landing') {
+    return `/${doc.lang}`
   }
   return '/'
 }
@@ -19,7 +22,10 @@ export const linkResolver = (doc) => {
 // Additional helper function for Next/Link components
 export const hrefResolver = (doc) => {
   if (doc.type === 'post') {
-    return '/posts/[uid]'
+    return `/${doc.lang}/journal/${doc.uid}`
+  }
+  if (doc.type === 'landing') {
+    return `/${doc.lang}`
   }
   return '/'
 }

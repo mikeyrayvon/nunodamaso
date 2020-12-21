@@ -8,7 +8,7 @@ const Header = ({ settings }) => {
   const [navActive, setNavActive] = useState(false)
 
   return (
-    <header className='w-full'>
+    <header className='w-full mb-24'>
       <MobileNav navActive={navActive} />
       <NavTrigger navActive={navActive} toggleNavActive={() => {
         if (navActive) {

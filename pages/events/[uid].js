@@ -6,37 +6,37 @@ import { queryRepeatableDocuments } from 'utils/queries'
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client } from 'utils/prismicHelpers'
 
-import DefaultLayout from 'layouts'
+import Layout from 'components/Layout'
 import Container from 'components/Container'
 import Slider from 'components/Slider'
 
-const Post = ({ settings, post }) => {
+const Event = ({ settings, doc }) => {
 
-  if (post && post.data) {
+  if (doc && doc.data) {
 
     let title = 'Website'
 
-    if (post.data.title) {
-      title += ` | ${post.data.title}`
+    if (doc.data.title) {
+      title += ` | ${doc.data.title}`
     }
 
     return (
-      <DefaultLayout settings={settings}>
+      <Layout settings={settings}>
         <Head>
           <title>{title}</title>
         </Head>
         <Container>
-          <h1 className='mb-20'>{post.data.title}</h1>
-          {post.data.body &&
+          <h1 className='mb-20'>{doc.data.title}</h1>
+          {doc.data.body &&
             <div className='text-content mb-20'>
-              {RichText.render(post.data.body, linkResolver)}
+              {RichText.render(doc.data.body, linkResolver)}
             </div>
           }
         </Container>
-        {post.data.gallery &&
-          <Slider slides={post.data.gallery} docId={post.id} />
+        {doc.data.gallery &&
+          <Slider slides={doc.data.gallery} docId={doc.id} />
         }
-      </DefaultLayout>
+      </Layout>
     );
   }
 
@@ -48,23 +48,27 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
 
   const settings = await Client().getSingle('settings') || {}
 
-  const post = await Client().getByUID('post', params.uid, ref ? { ref } : null) || {}
+  const doc = await Client().getByUID('event', params.uid, ref ? { ref } : null) || {}
 
   return {
     props: {
       settings,
       preview,
-      post
+      doc
     }
   }
 }
 
 export async function getStaticPaths() {
-  const documents = await queryRepeatableDocuments((doc) => doc.type === 'post')
+  const documents = await queryRepeatableDocuments(
+    (doc) => doc.type === 'event'
+  );
   return {
-    paths: documents.map(doc => `/posts/${doc.uid}`),
-    fallback: true,
-  }
+    paths: documents.map((doc) => {
+      return { params: { uid: doc.uid }, locale: doc.lang };
+    }),
+    fallback: false,
+  };
 }
 
-export default Post;
+export default Event;

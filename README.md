@@ -34,3 +34,4 @@ Then you can access it at [http://localhost:3000](http://localhost:3000).
 ## Resources
 - [Prismic project guide](https://user-guides.prismic.io/en/articles/2882569-sample-blog-with-api-based-cms-in-next-js)
 - [Prismic + Next.js documentation](https://prismic.io/docs/reactjs/getting-started/prismic-nextjs)
+- [Multi-language website example with Next.js](https://github.com/prismicio/nextjs-multi-language-site)

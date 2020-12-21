@@ -7,6 +7,8 @@ import {
   hrefResolver
 } from 'prismic-configuration'
 
+export const [, prismicRepoName] = apiEndpoint.match(/https?:\/\/([^.]+)?\.(cdn\.)?.+/);
+
 // Helper function to convert Prismic Rich Text links to Next/Link components
 export const customLink = (type, element, content, children, index) => (
   <Link
@@ -17,6 +19,18 @@ export const customLink = (type, element, content, children, index) => (
     <a>{content}</a>
   </Link>
 )
+
+export const manageLocale = (locales, locale) => {
+  // Languages from API response
+  // Setting Master language as default language option
+  const mainLanguage = locales[0];
+
+  // Sets current language based on the locale
+  const currentLang = locale !== undefined ? locale : mainLanguage;
+  const isMainLanguage = mainLanguage === currentLang;
+
+  return { mainLanguage, currentLang, isMainLanguage }
+}
 
 // Client method to query documents from the Prismic repo
 export const Client = (req = null) => (

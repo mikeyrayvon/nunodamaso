@@ -1,43 +1,66 @@
 import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
-import { Client } from 'utils/prismicHelpers'
+import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
-import DefaultLayout from 'layouts'
+import Layout from 'components/Layout'
 import Container from 'components/Container'
 
-const Landing = ({ settings, landing }) => {
+const Landing = ({ settings, doc, lang, preview }) => {
   return (
-    <DefaultLayout settings={settings}>
+    <Layout
+      settings={settings}
+      altLangs={doc.alternate_languages}
+      lang={lang}
+      isPreview={preview.isActive}
+    >
       <Head>
         <title>Website</title>
       </Head>
-      {landing && landing.data &&
+      {doc && doc.data &&
         <Container>
           <div className='text-content mb-20'>
-            {RichText.render(landing.data.body, linkResolver)}
+            {RichText.render(doc.data.body, linkResolver)}
           </div>
         </Container>
       }
-    </DefaultLayout>
+    </Layout>
   )
 }
 
-export async function getStaticProps({ preview = null, previewData = {} }) {
+export async function getStaticProps({
+  preview = null,
+  previewData = {},
+  locale,
+  locales
+}) {
 
   const { ref } = previewData
+  const isPreview = preview || false
+  const country = locale === 'en' ? '-us' : '-ch'
+  const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
-  const landing = await Client().getSingle('landing') || {}
+  const doc = await Client().getSingle('landing', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+
+  const { currentLang, isMainLanguage} = manageLocale(locales, localeCode)
 
   return {
     props: {
       settings,
-      landing,
-      preview
+      doc,
+      preview: {
+        isActive: isPreview,
+        activeRef: ref ? ref : null,
+      },
+      lang:{
+        currentLang,
+        isMainLanguage,
+      },
+      i18nNamespaces: ['default']
     }
   }
 }

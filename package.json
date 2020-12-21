@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "gsap": "^3.5.1",
+    "js-cookie": "^2.2.1",
     "moment-timezone": "^0.5.32",
-    "next": "^9.1.4",
+    "next": "10",
+    "next-i18next": "^7.0.1",
     "prismic-javascript": "3.0.1",
     "prismic-reactjs": "^1.1.2",
     "react": "^16.12.0",

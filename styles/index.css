@@ -17,6 +17,10 @@ html, body {
   width: 95%;
 }
 
+.text-content {
+  @apply text-2xl;
+}
+
 .text-content p {
   margin-bottom: 1rem;
 }
