@@ -4,10 +4,11 @@ import PostListItem from './PostListItem'
 import Container from '../Container'
 
 const PostList = ({ docs }) => {
+  console.log(docs)
   return (
     <Container>
-      <div className='flex flex-wrap -mx-6'>
-        {docs.map((docs) => (
+      <div>
+        {docs.map(doc => (
           <PostListItem doc={doc} key={doc.id} />
         ))}
       </div>

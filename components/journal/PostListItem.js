@@ -1,30 +1,48 @@
 import React from 'react'
 import { default as NextLink } from 'next/link'
+import { useTranslation } from 'react-i18next'
 
 import ResponsiveImage from '../ResponsiveImage'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 const PostListItem = ({ doc, setHoveredId }) => {
+  const { t } = useTranslation()
+
   if (doc && doc.data) {
     return (
-      <div className='flex flex-col w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 px-6 mb-20 sm:mb-40'>
+      <div className='mb-40'>
         <NextLink
           as={linkResolver(doc)}
           href={hrefResolver(doc)}
         >
           <a>
-            <ResponsiveImage
-              image={doc.data.main_image}
-              sizes={{
-                mobile: 'w=353',
-                md: 'w=474',
-                xl: 'w=538',
-                full: 'w=688'
-              }}
-              pictureClass='block mb-2'
-            />
-            <h2>{doc.data.title}</h2>
+            <div className='flex justify-end relative'>
+              <div className='absolute left-0 w-1/2 flex flex-col justify-center h-full z-10'>
+                <h3 className='text-7xl'>{doc.data.title}</h3>
+              </div>
+              <div className='w-2/3 flex'>
+                <div className='w-1/3 rounded-l-3xl overflow-hidden bg-gray relative'>
+                  <ResponsiveImage
+                    image={doc.data.main_image}
+                    sizes={{
+                      mobile: 'w=353',
+                      md: 'w=474',
+                      xl: 'w=538',
+                      full: 'w=688'
+                    }}
+                    pictureClass='absolute flex inset-0'
+                    imgClass='object-cover'
+                  />
+                </div>
+                <div className='w-2/3 bg-blue-lightest rounded-r-3xl overflow-hidden p-12 flex flex-col h-full justify-center py-36'>
+                  <div>
+                    <p className='text-3xl mb-2'>{doc.data.summary}</p>
+                    <span className='text-blue text-2xl'>{ t('continue-reading') }</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </a>
         </NextLink>
       </div>

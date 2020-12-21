@@ -2,11 +2,14 @@ import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
+import { useTranslation } from 'react-i18next'
 
 import Layout from 'components/Layout'
 import EventList from 'components/events/EventList'
 
 const Events = ({ settings, docs, lang, preview }) => {
+  const { t } = useTranslation()
+
   return (
     <Layout
       settings={settings}
@@ -14,9 +17,11 @@ const Events = ({ settings, docs, lang, preview }) => {
       isPreview={preview.isActive}
     >
       <Head>
-        <title>Nuno Damaso | Events</title>
+        <title>Nuno Damaso | { t('events') }</title>
       </Head>
-      <EventList docs={docs} />
+      {docs.length > 0 &&
+        <EventList docs={docs} />
+      }
     </Layout>
   )
 }

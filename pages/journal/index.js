@@ -2,11 +2,15 @@ import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
+import { useTranslation } from 'react-i18next'
 
+import Container from 'components/Container'
 import Layout from 'components/Layout'
 import PostList from 'components/journal/PostList'
 
 const Posts = ({ settings, docs, lang, preview }) => {
+  const { t } = useTranslation()
+
   return (
     <Layout
       settings={settings}
@@ -14,9 +18,18 @@ const Posts = ({ settings, docs, lang, preview }) => {
       isPreview={preview.isActive}
     >
       <Head>
-        <title>Website | Journal</title>
+        <title>Nuno Damaso | { t('journal') }</title>
       </Head>
-      <PostList docs={docs} />
+
+      <section className='mb-28'>
+        <Container>
+          <h1 className='text-5xl text-center'>{ t('journal') }</h1>
+        </Container>
+      </section>
+
+      {docs.length > 0 &&
+        <PostList docs={docs} />
+      }
     </Layout>
   )
 }
