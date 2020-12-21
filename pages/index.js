@@ -21,7 +21,7 @@ const Landing = ({ settings, doc, lang, preview }) => {
       </Head>
       {doc && doc.data &&
         <Container>
-          <div className='text-content mb-20'>
+          <div className='rich-text'>
             {RichText.render(doc.data.body, linkResolver)}
           </div>
         </Container>
@@ -42,7 +42,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+  const settings = await Client().getSingle('settings') || {}
 
   const doc = await Client().getSingle('landing', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 

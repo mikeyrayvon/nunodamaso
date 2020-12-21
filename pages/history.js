@@ -24,7 +24,8 @@ const History = ({ settings, doc, lang, preview }) => {
       </Head>
       {doc && doc.data &&
         <Container>
-          <div className='text-content mb-20'>
+          <h1 className='text-7xl text-center mb-24'>{ t('history') }</h1>
+          <div className='rich-text post-content'>
             {RichText.render(doc.data.body, linkResolver)}
           </div>
         </Container>
@@ -45,7 +46,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+  const settings = await Client().getSingle('settings') || {}
 
   const doc = await Client().getSingle('history', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 

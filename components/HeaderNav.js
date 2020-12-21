@@ -15,9 +15,9 @@ const HeaderNav = () => {
       <div className='flex py-4 md:py-8 -mx-6 uppercase'>
         <div className='flex-grow w-0 text-blue px-6'>
           <a href={router.pathname}>EN</a>
-          <span className='pointer-events-none'> / </span>
+          <span className='pointer-events-none'> | </span>
           <a href={`/fr${router.pathname}`}>FR</a>
-          <span className='pointer-events-none'> / </span>
+          <span className='pointer-events-none'> | </span>
           <a href={`/de${router.pathname}`}>DE</a>
         </div>
         <div className='px-6'><a href='/'><img src='images/logo.svg' /></a></div>

@@ -1,3 +1,4 @@
+import { default as NextLink } from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import { FaInstagram } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +16,7 @@ const Footer = ({ settings }) => {
     <footer className='bg-white mt-auto pt-24 pb-6'>
       <Container>
         <div className='flex flex-wrap mb-4 -mx-6'>
-          <div className='w-full sm:w-1/2 text-2xl mb-4 px-6'>
+          <div className='w-full sm:w-1/2 text-3xl mb-4 px-6'>
             <span className='block uppercase'>Nuno Damaso</span>
             <span className='block'>Holistic Health Coaching</span>
           </div>
@@ -23,8 +24,9 @@ const Footer = ({ settings }) => {
             <img src='images/yinyang.svg' />
           </div>
         </div>
-        {settings && settings.data &&
-          <div className='flex flex-wrap -mx-6'>
+
+        <div className='flex flex-wrap -mx-6 text-2xl'>
+          {settings && settings.data &&
             <div className='w-full md:w-1/4 text-blue px-6'>
               {settings.data.contact_email.length > 0 &&
                 <div className='mb-4'><a href={`mailto:${settings.data.contact_email[0].text}`}>{settings.data.contact_email[0].text}</a></div>
@@ -33,19 +35,48 @@ const Footer = ({ settings }) => {
                 <div className='mb-4'><a href={`tel:${settings.data.contact_phone[0].text}`}>{settings.data.contact_phone[0].text}</a></div>
               }
             </div>
+          }
+          {settings && settings.data &&
             <div className='w-full md:w-1/4 px-6 mb-4'>
               {settings.data.address &&
                 RichText.render(settings.data.address, linkResolver)
               }
               {settings.data.google_maps &&
-                <a className='text-blue text-sm mt-2' href={settings.data.google_maps}>{ t('google-maps') }</a>
+                <div className='mt-1'>
+                  <a className='text-blue text-sm' href={settings.data.google_maps}>{ t('google-maps') }</a>
+                </div>
               }
             </div>
-          </div>
-        }
-        <div className='mt-32 -mx-6'>
-          <div className='px-6'>
-            <span>&copy; { year } Nuno Damaso. { t('rights') }</span>
+          }
+          <nav className='w-full md:w-1/2 flex flex-wrap text-blue'>
+            <ul>
+              <li className='px-6 mb-2'>
+                <NextLink href={'/philosophy'}>
+                  <a className='hover:underline'>{ t('philosophy') }</a>
+                </NextLink>
+              </li>
+              <li className='px-6 mb-2'>
+                <NextLink href={'/history'}>
+                  <a className='hover:underline'>{ t('history') }</a>
+                </NextLink>
+              </li>
+              <li className='px-6 mb-2'>
+                <NextLink href={'/journal'}>
+                  <a className='hover:underline'>{ t('journal') }</a>
+                </NextLink>
+              </li>
+              <li className='px-6 mb-2'>
+                <NextLink href={'/events'}>
+                  <a className='hover:underline'>{ t('events') }</a>
+                </NextLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className='flex mt-32 -mx-6 sm:justify-end'>
+          <div className='px-6 w-auto'>
+            <span className='text-xs'>&copy; { year } Nuno Damaso. { t('rights') }</span>
           </div>
         </div>
       </Container>

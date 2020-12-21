@@ -15,7 +15,7 @@ const MainContent = ({ doc }) => {
         <div className='flex flex-wrap -mx-6'>
           <div className='w-full md:w-1/2 px-6'>
             <h1 className='text-7xl text-center mb-24'>{ t('philosophy') }</h1>
-            <div className='text-content'>
+            <div className='rich-text text-2xl'>
               {doc.data.body &&
                 RichText.render(doc.data.body, linkResolver)
               }

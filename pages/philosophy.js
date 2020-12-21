@@ -42,7 +42,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+  const settings = await Client().getSingle('settings') || {}
 
   const doc = await Client().getSingle('philosophy', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
