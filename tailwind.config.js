@@ -2,6 +2,7 @@ module.exports = {
   purge: [],
   theme: {
     colors: {
+      transparent: 'transparent',
       blue: {
         DEFAULT: '#0281B7',
         light: '#CADBE1',
@@ -9,6 +10,7 @@ module.exports = {
       },
       black: '#000000',
       white: '#FFFFFF',
+      gray: '#66798B',
     },
     extend: {
       height: {
