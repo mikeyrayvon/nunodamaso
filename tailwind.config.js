@@ -1,6 +1,15 @@
 module.exports = {
   purge: [],
   theme: {
+    colors: {
+      blue: {
+        DEFAULT: '#0281B7',
+        light: '#CADBE1',
+        lightest: '#DDE5E8'
+      },
+      black: '#000000',
+      white: '#FFFFFF',
+    },
     extend: {
       height: {
         '1/2': '50%',
