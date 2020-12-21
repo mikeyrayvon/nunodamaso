@@ -4,8 +4,24 @@
       "type" : "Text",
       "config" : {
         "label" : "Title",
-        "placeholder" : "Title",
+        "placeholder" : "Philosophy",
         "useAsTitle" : true
+      }
+    },
+    "summary" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Summary"
+      }
+    },
+    "main_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : null
+        },
+        "thumbnails" : [ ],
+        "label" : "Main Image"
       }
     },
     "body" : {
@@ -14,6 +30,27 @@
         "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
         "allowTargetBlank" : true,
         "label" : "Body"
+      }
+    },
+    "practical_examples" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "example" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Example"
+            }
+          }
+        },
+        "label" : "Practical Examples"
+      }
+    },
+    "examples_summary" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Examples Summary",
+        "placeholder" : "At the beginning of the coaching..."
       }
     }
   }

@@ -1,30 +1,82 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Title",
-        "placeholder" : "Settings",
-        "useAsTitle" : true
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Settings",
+        "useAsTitle": true
       }
     },
-    "mailchimp_action" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Mailchimp Action"
+    "site_title": {
+      "type": "Text",
+      "config": {
+        "label": "Site Title",
+        "placeholder": "Nuno Damaso",
       }
     },
-    "instagram_handle" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Instagram Username"
+    "site_description": {
+      "type": "Text",
+      "config": {
+        "label": "Site Description",
+        "placeholder": "Holistic Health Coaching",
       }
     },
-    "footer_contact" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, hyperlink",
-        "label" : "Footer Contact"
+    "subscription_prompt": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Subscription Prompt",
+        "placeholder": "Please subscribe..."
+      }
+    },
+    "mailchimp_action": {
+      "type": "Text",
+      "config": {
+        "label": "Mailchimp Action",
+        "placeholder": "https://..."
+      }
+    },
+    "contact_phone": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Phone"
+      }
+    },
+    "contact_email": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Email"
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Address"
+      }
+    },
+    "google_maps": {
+      "type": "Text",
+      "config": {
+        "label": "Google Maps",
+        "placeholder": "https://..."
+      }
+    },
+    "instagram_handle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Instagram Username"
+      }
+    },
+    "footer_contact": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink",
+        "label": "Footer Contact"
       }
     }
   }

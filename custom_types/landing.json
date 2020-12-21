@@ -4,7 +4,7 @@
       "type" : "Text",
       "config" : {
         "label" : "Title",
-        "placeholder" : "Title",
+        "placeholder" : "Nuno Damaso",
         "useAsTitle" : true
       }
     },
