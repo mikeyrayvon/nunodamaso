@@ -13,7 +13,7 @@ const HeaderNav = () => {
   return (
     <Container>
       <div className='flex py-4 md:py-8 -mx-6 uppercase'>
-        <div className='flex-grow w-0 text-blue px-6'>
+        <div className='flex-grow w-1/2 text-blue px-6'>
           <a href={router.pathname}>EN</a>
           <span className='pointer-events-none'> | </span>
           <a href={`/fr${router.pathname}`}>FR</a>
@@ -21,7 +21,7 @@ const HeaderNav = () => {
           <a href={`/de${router.pathname}`}>DE</a>
         </div>
         <div className='px-6'><a href='/'><img src='images/logo.svg' /></a></div>
-        <nav className='main-nav flex-grow w-0 text-blue'>
+        <nav className='main-nav flex-grow w-1/2 text-blue'>
           <ul className='flex justify-end'>
             <li className='px-6'>
               <NextLink href={'/philosophy'}>
