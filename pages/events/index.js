@@ -14,7 +14,7 @@ const Events = ({ settings, docs, lang, preview }) => {
       isPreview={preview.isActive}
     >
       <Head>
-        <title>Website | Events</title>
+        <title>Nuno Damaso | Events</title>
       </Head>
       <EventList docs={docs} />
     </Layout>

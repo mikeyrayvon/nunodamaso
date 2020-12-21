@@ -17,7 +17,7 @@ const Landing = ({ settings, doc, lang, preview }) => {
       isPreview={preview.isActive}
     >
       <Head>
-        <title>Website</title>
+        <title>Nuno Damaso</title>
       </Head>
       {doc && doc.data &&
         <Container>

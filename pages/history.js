@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
+import { useTranslation } from 'react-i18next'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
@@ -9,6 +10,8 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 
 const History = ({ settings, doc, lang, preview }) => {
+  const { t } = useTranslation()
+
   return (
     <Layout
       settings={settings}
@@ -17,7 +20,7 @@ const History = ({ settings, doc, lang, preview }) => {
       isPreview={preview.isActive}
     >
       <Head>
-        <title>Website</title>
+        <title>Nuno Damaso | { t('history') }</title>
       </Head>
       {doc && doc.data &&
         <Container>

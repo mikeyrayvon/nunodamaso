@@ -14,7 +14,7 @@ const Post = ({ settings, doc }) => {
 
   if (doc && doc.data) {
 
-    let title = 'Website'
+    let title = 'Nuno Damaso'
 
     if (doc.data.title) {
       title += ` | ${doc.data.title}`
