@@ -7,6 +7,9 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import Layout from 'components/Layout'
 import Container from 'components/Container'
+import Hero from 'components/landing/Hero'
+import Intro from 'components/landing/Intro'
+import Disciplines from 'components/landing/Disciplines'
 
 const Landing = ({ settings, doc, lang, preview }) => {
   return (
@@ -20,11 +23,21 @@ const Landing = ({ settings, doc, lang, preview }) => {
         <title>Nuno Damaso</title>
       </Head>
       {doc && doc.data &&
-        <Container>
-          <div className='rich-text'>
-            {RichText.render(doc.data.body, linkResolver)}
-          </div>
-        </Container>
+        <>
+          <Hero image={doc.data.main_image} />
+          <Intro heading={doc.data.intro_heading} text={doc.data.intro_text} />
+          <Disciplines
+            heading={doc.data.disciplines_heading}
+            text={doc.data.disciplines_text}
+            image={doc.data.disciplines_image}
+            disciplines={doc.data.disciplines}
+          />
+          <Container>
+            <div className='rich-text'>
+              {RichText.render(doc.data.body, linkResolver)}
+            </div>
+          </Container>
+        </>
       }
     </Layout>
   )

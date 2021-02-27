@@ -23,12 +23,14 @@ const History = ({ settings, doc, lang, preview }) => {
         <title>Nuno Damaso | { t('history') }</title>
       </Head>
       {doc && doc.data &&
-        <Container>
-          <h1 className='text-7xl text-center mb-24'>{ t('history') }</h1>
-          <div className='rich-text post-content'>
-            {RichText.render(doc.data.body, linkResolver)}
-          </div>
-        </Container>
+        <div className='pt-36'>
+          <Container>
+            <h1 className='text-3xl text-center mb-20'>{ t('history') }</h1>
+            <div className='rich-text post-content'>
+              {RichText.render(doc.data.body, linkResolver)}
+            </div>
+          </Container>
+        </div>
       }
     </Layout>
   )

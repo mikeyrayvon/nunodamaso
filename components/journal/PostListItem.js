@@ -19,7 +19,7 @@ const PostListItem = ({ doc, setHoveredId }) => {
           <a>
             <div className='flex justify-end relative'>
               <div className='absolute left-0 w-1/2 flex flex-col justify-center h-full z-10'>
-                <h3 className='text-7xl'>{doc.data.title}</h3>
+                <h3 className='text-3xl'>{doc.data.title}</h3>
               </div>
               <div className='w-2/3 flex'>
                 <div className='w-1/3 rounded-l-3xl overflow-hidden bg-gray relative'>
@@ -37,8 +37,8 @@ const PostListItem = ({ doc, setHoveredId }) => {
                 </div>
                 <div className='w-2/3 bg-blue-lightest rounded-r-3xl overflow-hidden p-12 flex flex-col h-full justify-center py-36'>
                   <div>
-                    <p className='text-3xl mb-2'>{doc.data.summary}</p>
-                    <span className='text-blue text-2xl'>{ t('continue-reading') }</span>
+                    <p className='mb-2'>{doc.data.summary}</p>
+                    <span className='text-blue'>{ t('continue-reading') }</span>
                   </div>
                 </div>
               </div>

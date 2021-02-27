@@ -9,12 +9,13 @@
 /* purgecss end ignore */
 
 html, body {
-  font-size: 12px;
+  font-size: 18px;
   overflow-x: hidden;
 }
 
 .container {
   width: 95%;
+  max-width: 1400px;
 }
 
 .rich-text p {
@@ -30,7 +31,7 @@ html, body {
 }
 
 .post-content p {
-  @apply w-5/6 text-2xl;
+  @apply w-5/6;
   max-width: 575px;
 }
 
@@ -110,20 +111,11 @@ input {
 }
 
 @screen lg {
+  .container {
+    width: 90%;
+  }
   .post-content p {
     @apply w-1/2;
-  }
-}
-
-@screen xl {
-  .container {
-    width: 1100px;
-  }
-}
-
-@screen 2xl {
-  .container {
-    width: 1400px;
   }
 }
 

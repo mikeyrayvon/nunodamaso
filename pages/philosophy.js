@@ -21,10 +21,10 @@ const Philosophy = ({ settings, doc, lang, preview }) => {
         <title>Nuno Damaso | { t('philosophy') }</title>
       </Head>
       {doc && doc.data &&
-        <>
+        <div className='pt-36'>
           <MainContent doc={doc} />
           <PracticalExamples doc={doc} />
-        </>
+        </div>
       }
     </Layout>
   )

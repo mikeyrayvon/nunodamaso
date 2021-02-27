@@ -4,7 +4,6 @@ import { FaInstagram } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 
 import Container from './Container'
-import MailchimpForm from './MailchimpForm'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
@@ -16,7 +15,7 @@ const Footer = ({ settings }) => {
     <footer className='bg-white mt-auto pt-24 pb-6'>
       <Container>
         <div className='flex flex-wrap mb-4 -mx-6'>
-          <div className='w-full sm:w-1/2 text-3xl mb-4 px-6'>
+          <div className='w-full sm:w-1/2 text-lg mb-4 px-6'>
             <span className='block uppercase'>Nuno Damaso</span>
             <span className='block'>Holistic Health Coaching</span>
           </div>
@@ -25,7 +24,7 @@ const Footer = ({ settings }) => {
           </div>
         </div>
 
-        <div className='flex flex-wrap -mx-6 text-2xl'>
+        <div className='flex flex-wrap -mx-6'>
           {settings && settings.data &&
             <div className='w-full md:w-1/4 text-blue px-6'>
               {settings.data.contact_email.length > 0 &&
@@ -50,22 +49,22 @@ const Footer = ({ settings }) => {
           }
           <nav className='w-full md:w-1/2 flex flex-wrap text-blue'>
             <ul>
-              <li className='px-6 mb-2'>
+              <li className='px-6 mb-1'>
                 <NextLink href={'/philosophy'}>
                   <a className='hover:underline'>{ t('philosophy') }</a>
                 </NextLink>
               </li>
-              <li className='px-6 mb-2'>
+              <li className='px-6 mb-1'>
                 <NextLink href={'/history'}>
                   <a className='hover:underline'>{ t('history') }</a>
                 </NextLink>
               </li>
-              <li className='px-6 mb-2'>
+              <li className='px-6 mb-1'>
                 <NextLink href={'/journal'}>
                   <a className='hover:underline'>{ t('journal') }</a>
                 </NextLink>
               </li>
-              <li className='px-6 mb-2'>
+              <li className='px-6 mb-1'>
                 <NextLink href={'/events'}>
                   <a className='hover:underline'>{ t('events') }</a>
                 </NextLink>

@@ -19,7 +19,7 @@ const Events = ({ settings, docs, lang, preview }) => {
       <Head>
         <title>Nuno Damaso | { t('events') }</title>
       </Head>
-      {docs.length > 0 &&
+      {docs && docs.length > 0 &&
         <EventList docs={docs} />
       }
     </Layout>
@@ -39,13 +39,16 @@ export async function getStaticProps({
   const settings = await Client().getSingle('settings') || {}
 
   const docs = await Client().query(
-    Prismic.Predicates.at('document.type', 'event'), {
-      orderings : '[document.first_publication_date]',
+    Prismic.Predicates.at('document.type', 'event'),
+    {
+      orderings : '[document.start_date]',
       pageSize: 100,
       fetch: [
         'event.title',
         'event.main_image',
-        'event.summary'
+        'event.location',
+        'event.start_date',
+        'event.end_date'
       ],
       ...(ref ? { ref } : null)
     },
@@ -58,7 +61,7 @@ export async function getStaticProps({
   return {
     props: {
       settings,
-      docs: docs ? docs.results : [],
+      docs: docs.results ? docs.results : [],
       preview: {
         isActive: isPreview,
         activeRef: ref ? ref : null,

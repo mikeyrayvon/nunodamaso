@@ -12,10 +12,10 @@ const MainContent = ({ doc }) => {
   return (
     <section className='pb-24'>
       <Container>
-        <div className='flex flex-wrap -mx-6'>
+        <div className='flex flex-wrap -mx-6 md:justify-between'>
           <div className='w-full md:w-1/2 px-6'>
-            <h1 className='text-7xl text-center mb-24'>{ t('philosophy') }</h1>
-            <div className='rich-text text-2xl'>
+            <h1 className='text-3xl text-center mb-20'>{ t('philosophy') }</h1>
+            <div className='rich-text'>
               {doc.data.body &&
                 RichText.render(doc.data.body, linkResolver)
               }
@@ -23,9 +23,9 @@ const MainContent = ({ doc }) => {
           </div>
           <div className='w-full md:w-1/2 px-6'>
             {doc.data.main_image &&
-              <ResponsiveImage
-                image={doc.data.main_image}
-              />
+              <div className='md:w-3/5 mx-auto'>
+                <ResponsiveImage image={doc.data.main_image} />
+              </div>
             }
           </div>
         </div>

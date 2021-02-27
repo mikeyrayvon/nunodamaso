@@ -26,17 +26,17 @@ const MailchimpForm = ({ settings }) => {
               render={({ subscribe, status, message }) => (
                 <div className='flex -mx-6 justify-center'>
                   <div className='w-full sm:w-2/3 md:w-7/12 lg:w-1/2 px-6 relative'>
-                    <div className='mb-14'>
-                      <p className='text-3xl text-gray'>If you would like to recieve occasional updates about upcoming classes and events, please subscribe to our newsletter.</p>
+                    <div className='mb-8'>
+                      <p className='text-lg text-gray'>If you would like to recieve occasional updates about upcoming classes and events, please subscribe to our newsletter.</p>
                     </div>
                     <div className='flex mb-4'>
                       <input
                         ref={node => (email = node)}
                         type='email'
-                        className='text-xl py-2 focus:outline-none focus:border-blue font-normal border-b border-black flex-grow bg-transparent'
+                        className='text-lg py-2 focus:outline-none focus:border-blue font-normal border-b-2 border-black flex-grow bg-transparent'
                       />
                       <button className='focus:outline-none ml-4 button py-2 hover:text-blue text-black' onClick={() => submit(subscribe)}>
-                        <span className="font-normal text-xl bg-transparent">{ t('subscribe') }</span>
+                        <span className="font-normal bg-transparent">{ t('subscribe') }</span>
                       </button>
                     </div>
                     <div className='absolute w-full sm:w-2/3 rich-text'>

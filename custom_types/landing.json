@@ -1,19 +1,77 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Title",
-        "placeholder" : "Nuno Damaso",
-        "useAsTitle" : true
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Landing",
+        "useAsTitle": true
       }
     },
-    "body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
-        "allowTargetBlank" : true,
-        "label" : "Body"
+    "main_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Main image"
+      }
+    },
+    "intro_heading": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Intro Heading"
+      }
+    },
+    "intro_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em",
+        "label": "Intro Text"
+      }
+    },
+    "disciplines_heading": {
+      "type": "Text",
+      "config": {
+        "label": "Disciplines Heading"
+      }
+    },
+    "disciplines_summary": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em",
+        "label": "Disciplines Summary"
+      }
+    },
+    "disciplines": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "Name"
+            }
+          },
+          "summary": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong, em",
+              "label": "Summary"
+            }
+          },
+          "more_reading": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "journal"
+              ],
+              "label": "More reading"
+            }
+          }
+        },
+        "label": "Disciplines"
       }
     }
   }

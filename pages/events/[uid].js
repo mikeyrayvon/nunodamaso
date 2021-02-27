@@ -4,57 +4,71 @@ import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 import { hrefResolver, linkResolver } from 'prismic-configuration'
-import { Client } from 'utils/prismicHelpers'
+import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
 import Container from 'components/Container'
-import Slider from 'components/Slider'
+import EventHeader from 'components/events/EventHeader'
+import EventBody from 'components/events/EventBody'
 
-const Event = ({ settings, doc }) => {
+const Event = ({ settings, doc, lang, preview }) => {
+  if (doc === null || doc.data === undefined)
+    return null
 
-  if (doc && doc.data) {
+  let title = 'Nuno Damaso'
 
-    let title = 'Nuno Damaso'
-
-    if (doc.data.title) {
-      title += ` | ${doc.data.title}`
-    }
-
-    return (
-      <Layout settings={settings}>
-        <Head>
-          <title>{title}</title>
-        </Head>
-        <Container>
-          <h1 className='mb-20'>{doc.data.title}</h1>
-          {doc.data.body &&
-            <div className='rich-text'>
-              {RichText.render(doc.data.body, linkResolver)}
-            </div>
-          }
-        </Container>
-        {doc.data.gallery &&
-          <Slider slides={doc.data.gallery} docId={doc.id} />
-        }
-      </Layout>
-    );
+  if (doc.data.title) {
+    title += ` | ${doc.data.title}`
   }
 
-  return null;
+  return (
+    <Layout
+      settings={settings}
+      altLangs={doc.alternate_languages}
+      lang={lang}
+      isPreview={preview.isActive}
+    >
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <EventHeader doc={doc} />
+      <EventBody doc={doc} />
+    </Layout>
+  )
 };
 
-export async function getStaticProps({ params, preview = null, previewData = {} }) {
+export async function getStaticProps({
+  params,
+  preview = null,
+  previewData = {},
+  locale,
+  locales
+}) {
   const { ref } = previewData
+  const isPreview = preview || false
+  const country = locale === 'en' ? '-us' : '-ch'
+  const localeCode = locale + country
 
   const settings = await Client().getSingle('settings') || {}
 
-  const doc = await Client().getByUID('event', params.uid, ref ? { ref } : null) || {}
+  const doc = await Client().getByUID('event', params.uid, ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+
+  const { currentLang, isMainLanguage} = manageLocale(locales, localeCode)
+  console.log(currentLang, isMainLanguage)
 
   return {
     props: {
       settings,
-      preview,
-      doc
+      doc,
+      preview: {
+        isActive: isPreview,
+        activeRef: ref ? ref : null,
+      },
+      lang:{
+        currentLang,
+        isMainLanguage,
+      },
+      i18nNamespaces: ['default']
     }
   }
 }
@@ -65,7 +79,7 @@ export async function getStaticPaths() {
   );
   return {
     paths: documents.map((doc) => {
-      return { params: { uid: doc.uid }, locale: doc.lang };
+      return { params: { uid: doc.uid }, locale: doc.lang.slice(0, 2) };
     }),
     fallback: false,
   };
