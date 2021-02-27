@@ -45,12 +45,12 @@ const EventHeader = ({ doc }) => {
                 <span className='text-lg'>{constructDatespan(start_date, end_date)}</span>
               </div>
             }
-            {summary[0].text.length > 0 &&
+            {summary &&
               <div className='rich-text mb-6'>
                 {RichText.render(summary, linkResolver)}
               </div>
             }
-            {tickets_link.url &&
+            {tickets_link && tickets_link.url &&
               <div className='pt-2'>
                 <a href={tickets_link.url} className='inline-block bg-blue py-4 px-10 rounded-full text-white shadow-lg transition-bg hover:bg-blue-hover duration-75'>Register</a>
               </div>
