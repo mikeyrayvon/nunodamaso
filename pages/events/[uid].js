@@ -54,7 +54,6 @@ export async function getStaticProps({
   const doc = await Client().getByUID('event', params.uid, ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const { currentLang, isMainLanguage} = manageLocale(locales, localeCode)
-  console.log(currentLang, isMainLanguage)
 
   return {
     props: {

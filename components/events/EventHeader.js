@@ -20,9 +20,20 @@ const EventHeader = ({ doc }) => {
   return (
     <section className='bg-blue-lightest pt-36 pb-20'>
       <Container>
-        <div className='flex -mx-6'>
-          <div className='w-1/12 lg:mt-1 px-6'><span className='uppercase'>Event</span></div>
-          <div className='w-5/12 px-6'>
+        <div className='flex flex-wrap lg:flex-nowrap -mx-6'>
+          <div className='w-full lg:w-1/12 lg:mt-1 px-6 lg:order-1'><span className='uppercase'>Event</span></div>
+          <div className='w-full lg:w-1/2 px-6 pt-8 lg:order-3 mb-4'>
+            {main_image &&
+              <ResponsiveImage
+                image={main_image}
+                sizes={{
+                  full: 'w=1300'
+                }}
+                pictureClass='block'
+              />
+            }
+          </div>
+          <div className='w-full lg:w-5/12 px-6 lg:order-2'>
             <h1 className='mb-8 text-2xl'>{title}</h1>
             {location.length > 0 &&
               <div className='mb-6'>
@@ -43,17 +54,6 @@ const EventHeader = ({ doc }) => {
               <div className='pt-2'>
                 <a href={tickets_link.url} className='inline-block bg-blue py-4 px-10 rounded-full text-white shadow-lg transition-bg hover:bg-blue-hover duration-75'>Register</a>
               </div>
-            }
-          </div>
-          <div className='w-1/2 px-6 pt-8'>
-            {main_image &&
-              <ResponsiveImage
-                image={main_image}
-                sizes={{
-                  full: 'w=1300'
-                }}
-                pictureClass='block'
-              />
             }
           </div>
         </div>
