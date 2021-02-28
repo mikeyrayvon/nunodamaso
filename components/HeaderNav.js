@@ -2,23 +2,20 @@ import { useState, useEffect } from 'react'
 import { default as NextLink } from 'next/link'
 import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
-import { useRouter } from 'next/router';
+
 
 import Container from './Container'
+import LocaleSelect from './locale/LocaleSelect'
 
 const HeaderNav = () => {
-  const router = useRouter()
+
   const { t } = useTranslation()
 
   return (
     <Container>
       <div className='flex py-4 md:py-8 -mx-6 uppercase text-sm'>
         <div className='flex-grow w-1/2 text-blue px-6'>
-          <a href={router.asPath}>EN</a>
-          <span className='pointer-events-none'> | </span>
-          <a href={`/fr${router.asPath}`}>FR</a>
-          <span className='pointer-events-none'> | </span>
-          <a href={`/de${router.asPath}`}>DE</a>
+          <LocaleSelect />
         </div>
         <div className='px-6'><a href='/'><img src='/images/logo.svg' /></a></div>
         <nav className='main-nav flex-grow w-1/2 text-blue'>

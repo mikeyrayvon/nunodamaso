@@ -37,6 +37,9 @@ module.exports = {
       },
       margin: {
        '1/12': '8.333333%',
+      },
+      transitionProperty: {
+        'height': 'height',
       }
     },
   },

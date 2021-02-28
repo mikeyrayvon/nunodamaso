@@ -24,20 +24,20 @@ const Post = ({ settings, doc, preview, lang }) => {
         settings={settings}
         lang={lang}
         isPreview={preview.isActive}
+        altLangs={doc.alternate_languages}
       >
         <Head>
           <title>{title}</title>
         </Head>
-        <Container>
-          <h1 className='mb-20'>{doc.data.title}</h1>
-          {doc.data.body &&
-            <div className='rich-text post-content'>
-              {RichText.render(doc.data.body, linkResolver)}
-            </div>
-          }
-        </Container>
-        {doc.data.gallery &&
-          <Slider slides={doc.data.gallery} docId={doc.id} />
+        {doc && doc.data &&
+          <div className='pt-36'>
+            <Container>
+              <h1 className='text-3xl text-center mb-20'>{ doc.data.title }</h1>
+              <div className='rich-text post-content'>
+                {RichText.render(doc.data.body, linkResolver)}
+              </div>
+            </Container>
+          </div>
         }
       </Layout>
     );
