@@ -9,9 +9,7 @@ const Header = ({ settings }) => {
 
   return (
     <header className='w-full mb-24 fixed top-0 w-screen z-50'>
-      <MobileNav navActive={navActive} />
-      <NavTrigger navActive={navActive} handleClick={setNavActive} />
-      <HeaderNav />
+      <HeaderNav navActive={navActive} setNavActive={setNavActive} />
     </header>
   )
 }

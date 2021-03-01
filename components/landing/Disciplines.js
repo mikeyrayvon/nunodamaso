@@ -9,7 +9,7 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
   return (
     <section className='bg-white pt-28 pb-20'>
       <Container>
-        <div className='flex -mx-6 mb-16 lg:items-end'>
+        <div className='flex flex-wrap lg:flex-nowrap -mx-6 mb-16 lg:items-end'>
           <div className='px-6 w-full lg:w-1/2 mb-4'>
             {heading &&
               <h2 className='text-xl lg:w-1/2'>{heading}</h2>
@@ -21,8 +21,8 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
             }
           </div>
         </div>
-        <div className='flex -mx-6 lg:justify-between'>
-          <div className='px-6 w-full lg:w-2/5 mb-4'>
+        <div className='flex flex-wrap lg:flex-nowrap -mx-6 lg:justify-between'>
+          <div className='px-6 w-full lg:w-2/5 mb-16 lg:mb-4'>
             {image &&
               <img src={image.url} />
             }
@@ -31,7 +31,7 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
             {disciplines &&
               disciplines.map(({name, summary, more_reading}) => {
                 return (
-                  <div className='w-1/2 mb-16 px-6'>
+                  <div className='w-full md:w-1/2 mb-16 px-6'>
                     <h3 className='text-lg mb-4'>{name}</h3>
                     {RichText.render(summary, linkResolver)}
                     {more_reading.id &&

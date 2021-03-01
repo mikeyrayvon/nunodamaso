@@ -14,7 +14,7 @@ html, body {
 }
 
 .container {
-  width: 95%;
+  width: 92%;
   max-width: 1400px;
 }
 
@@ -32,34 +32,6 @@ html, body {
 
 .post-content p {
   @apply w-5/6 max-w-prose;
-}
-
-.nav-trigger {
-  width: 44px;
-  height: 12px;
-}
-
-.nav-trigger-bar {
-  transition: transform 200ms ease-in-out;
-}
-
-.nav-trigger.nav-active .nav-trigger-bar:first-of-type {
-  transform: rotate(10deg) translateY(150%);
-}
-
-.nav-trigger.nav-active .nav-trigger-bar:last-of-type {
-  transform: rotate(-10deg) translateY(-150%);
-}
-
-.mobile-nav {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms ease-in-out;
-}
-
-.mobile-nav.nav-active {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .swiper-container {
@@ -103,10 +75,6 @@ input {
   .post-content p {
     @apply w-2/3;
   }
-}
-
-@screen md {
-
 }
 
 @screen lg {

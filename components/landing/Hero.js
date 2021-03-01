@@ -4,7 +4,7 @@ const Hero = ({ image }) => {
       backgroundImage: `url("${image.url}")`
     }}>
       <div className='absolute inset-0 bg-gradient-to-t from-blue-light to-transparent'></div>
-      <div className='absolute inset-0 flex flex-col justify-center items-center text-white'>
+      <div className='absolute inset-0 flex flex-col justify-center text-center items-center text-white p-4'>
         <div className='mb-2'>
           <h1 className='text-4xl'>Holistic Health Coaching</h1>
         </div>
