@@ -4,7 +4,6 @@ import PostListItem from './PostListItem'
 import Container from '../Container'
 
 const PostList = ({ docs }) => {
-  console.log(docs)
   return (
     <Container>
       <div>

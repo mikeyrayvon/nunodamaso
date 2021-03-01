@@ -19,7 +19,7 @@ const MailchimpForm = ({ settings }) => {
       }
 
       return (
-        <section className='bg-blue-light py-40'>
+        <section className='bg-blue-light pt-28 pb-20'>
           <Container>
             <MailchimpSubscribe
               url={settings.data.mailchimp_action}

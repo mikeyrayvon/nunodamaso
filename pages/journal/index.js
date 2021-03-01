@@ -21,9 +21,9 @@ const Posts = ({ settings, docs, lang, preview }) => {
         <title>Nuno Damaso | { t('journal') }</title>
       </Head>
 
-      <section className='mb-28'>
+      <section className='pt-36 mb-28'>
         <Container>
-          <h1 className='text-5xl text-center'>{ t('journal') }</h1>
+          <h1 className='text-lg sm:text-xl md:text-2xl text-center'>{ t('journal') }</h1>
         </Container>
       </section>
 

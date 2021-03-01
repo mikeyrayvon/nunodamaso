@@ -14,7 +14,7 @@ const MainContent = ({ doc }) => {
       <Container>
         <div className='flex flex-wrap -mx-6 md:justify-between'>
           <div className='w-full md:w-1/2 px-6'>
-            <h1 className='text-3xl text-center mb-20'>{ t('philosophy') }</h1>
+            <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20'>{ t('philosophy') }</h1>
             <div className='rich-text'>
               {doc.data.body &&
                 RichText.render(doc.data.body, linkResolver)

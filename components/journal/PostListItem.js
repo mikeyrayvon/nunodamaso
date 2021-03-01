@@ -17,12 +17,12 @@ const PostListItem = ({ doc, setHoveredId }) => {
           href={hrefResolver(doc)}
         >
           <a>
-            <div className='flex justify-end relative'>
-              <div className='absolute left-0 w-1/2 flex flex-col justify-center h-full z-10'>
+            <div className='flex flex-col md:flex-row justify-end relative'>
+              <div className='hidden md:flex absolute left-0 w-1/2 flex-col justify-center h-full z-10'>
                 <h3 className='text-3xl'>{doc.data.title}</h3>
               </div>
-              <div className='w-2/3 flex'>
-                <div className='w-1/3 rounded-l-3xl overflow-hidden bg-gray relative'>
+              <div className='md:w-2/3 md:flex'>
+                <div className='md:w-1/3 rounded-t-xl md:rounded-t-none md:rounded-l-3xl overflow-hidden bg-gray relative'>
                   <ResponsiveImage
                     image={doc.data.main_image}
                     sizes={{
@@ -31,12 +31,13 @@ const PostListItem = ({ doc, setHoveredId }) => {
                       xl: 'w=538',
                       full: 'w=688'
                     }}
-                    pictureClass='absolute flex inset-0'
-                    imgClass='object-cover'
+                    pictureClass='h-48 w-full md:h-full md:absolute flex inset-0'
+                    imgClass='object-cover w-full'
                   />
                 </div>
-                <div className='w-2/3 bg-blue-lightest rounded-r-3xl overflow-hidden p-12 flex flex-col h-full justify-center py-36'>
+                <div className='md:w-2/3 bg-blue-lightest rounded-b-xl md:rounded-b-none md:rounded-r-3xl overflow-hidden p-8 md:p-12 flex flex-col h-full justify-center md:py-36'>
                   <div>
+                    <h3 className='md:hidden text-xl mb-2'>{doc.data.title}</h3>
                     <p className='mb-2'>{doc.data.summary}</p>
                     <span className='text-blue'>{ t('continue-reading') }</span>
                   </div>

@@ -32,7 +32,7 @@ const Post = ({ settings, doc, preview, lang }) => {
         {doc && doc.data &&
           <div className='pt-36'>
             <Container>
-              <h1 className='text-3xl text-center mb-20'>{ doc.data.title }</h1>
+              <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20'>{ doc.data.title }</h1>
               <div className='rich-text post-content'>
                 {RichText.render(doc.data.body, linkResolver)}
               </div>
