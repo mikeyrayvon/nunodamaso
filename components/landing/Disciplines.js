@@ -29,9 +29,9 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
           </div>
           <div className='w-full lg:w-1/2 mb-4 flex flex-wrap content-start'>
             {disciplines &&
-              disciplines.map(({name, summary, more_reading}) => {
+              disciplines.map(({name, summary, more_reading}, index) => {
                 return (
-                  <div className='w-full md:w-1/2 mb-16 px-6'>
+                  <div className='w-full md:w-1/2 mb-16 px-6' key={`landing_disciplines_${index}`}>
                     <h3 className='text-lg mb-4 font-serif font-bold'>{name}</h3>
                     {RichText.render(summary, linkResolver)}
                     {more_reading.id &&
