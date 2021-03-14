@@ -1,1 +1,35 @@
-/* @font-face declarations */
+@font-face {
+    font-family: 'Optima LT Std';
+    src: url('/fonts/OptimaLTStd-DemiBold.woff2') format('woff2'),
+        url('/fonts/OptimaLTStd-DemiBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Optima LT Std';
+    src: url('/fonts/OptimaLTStd.woff2') format('woff2'),
+        url('/fonts/OptimaLTStd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alte Haas Grotesk';
+    src: url('/fonts/AlteHaasGrotesk_Bold.woff2') format('woff2'),
+        url('/fonts/AlteHaasGrotesk_Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alte Haas Grotesk';
+    src: url('/fonts/AlteHaasGrotesk.woff2') format('woff2'),
+        url('/fonts/AlteHaasGrotesk.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

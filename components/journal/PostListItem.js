@@ -19,7 +19,7 @@ const PostListItem = ({ doc, setHoveredId }) => {
           <a>
             <div className='flex flex-col md:flex-row justify-end relative'>
               <div className='hidden md:flex absolute left-0 w-1/2 flex-col justify-center h-full z-10'>
-                <h3 className='text-3xl'>{doc.data.title}</h3>
+                <h3 className='text-3xl font-serif'>{doc.data.title}</h3>
               </div>
               <div className='md:w-2/3 md:flex'>
                 <div className='md:w-1/3 rounded-t-xl md:rounded-t-none md:rounded-l-3xl overflow-hidden bg-gray relative'>

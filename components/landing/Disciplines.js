@@ -12,7 +12,7 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
         <div className='flex flex-wrap lg:flex-nowrap -mx-6 mb-16 lg:items-end'>
           <div className='px-6 w-full lg:w-1/2 mb-4'>
             {heading &&
-              <h2 className='text-xl lg:w-1/2'>{heading}</h2>
+              <h2 className='text-xl lg:w-1/2 font-serif'>{heading}</h2>
             }
           </div>
           <div className='px-6 w-full lg:w-1/2 mb-4'>
@@ -32,7 +32,7 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
               disciplines.map(({name, summary, more_reading}) => {
                 return (
                   <div className='w-full md:w-1/2 mb-16 px-6'>
-                    <h3 className='text-lg mb-4'>{name}</h3>
+                    <h3 className='text-lg mb-4 font-serif font-bold'>{name}</h3>
                     {RichText.render(summary, linkResolver)}
                     {more_reading.id &&
                       <NextLink href={`/${more_reading.type}/${more_reading.slug}`}>

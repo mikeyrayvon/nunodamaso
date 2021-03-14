@@ -24,6 +24,10 @@ module.exports = {
       white: '#FFFFFF',
       gray: '#66798B'
     },
+    fontFamily: {
+      'sans': '"Alte Haas Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue"',
+      'serif': '"Optima LT Std", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+    },
     extend: {
       height: {
         '1/2': '50%',

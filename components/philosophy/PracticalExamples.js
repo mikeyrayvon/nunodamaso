@@ -12,7 +12,7 @@ const PracticalExamples = ({ doc }) => {
         <Container>
           <div className='flex flex-wrap -mx-6 mb-12'>
             <div className='w-full px-6'>
-              <h2 className='text-xl text-blue-dark'>{ t('practical-examples') }</h2>
+              <h2 className='text-xl text-blue-dark font-serif'>{ t('practical-examples') }</h2>
             </div>
           </div>
           <ul className='flex flex-wrap -mx-6'>

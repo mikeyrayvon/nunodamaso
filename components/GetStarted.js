@@ -16,7 +16,7 @@ const GetStarted = ({ settings }) => {
           <div className='flex flex-wrap lg:flex-nowrap -mx-6 lg:justify-between'>
             <div className='px-6 w-full mb-16 lg:mb-0 lg:w-1/2'>
               {get_started_heading &&
-                <h2 className='text-xl mb-4'>{get_started_heading}</h2>
+                <h2 className='text-xl mb-4 font-serif'>{get_started_heading}</h2>
               }
               {get_started_text &&
                 <div><span>{get_started_text}</span></div>
