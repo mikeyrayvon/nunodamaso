@@ -15,7 +15,7 @@ const LocaleSelect = () => {
   return (
     <div ref={ref} className={'flex flex-col w-8 transition-height overflow-hidden' + (!isComponentVisible ? ' h-4' : ' h-12')}>
       <LocaleSelectItem
-        code={'en'}
+        code={'de'}
         path={router.asPath}
         current={router.locale}
         active={isComponentVisible}
@@ -29,12 +29,13 @@ const LocaleSelect = () => {
         handleClick={setIsComponentVisible}
       />
       <LocaleSelectItem
-        code={'de'}
-        path={`/de${router.asPath}`}
+        code={'en'}
+        path={`/en${router.asPath}`}
         current={router.locale}
         active={isComponentVisible}
         handleClick={setIsComponentVisible}
       />
+
     </div>
   )
 }

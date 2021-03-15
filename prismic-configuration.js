@@ -10,7 +10,7 @@ export const accessToken = process.env.ACCESS_TOKEN
 // -- Link resolution rules
 // Manages the url links to internal Prismic documents
 export const linkResolver = (doc) => {
-  const locale = doc.lang !== 'en-us' ? '/' + doc.lang.substring(0,2) : ''
+  const locale = doc.lang !== 'de-ch' ? '/' + doc.lang.substring(0,2) : ''
 
   if (doc.type === 'journal') {
     return `${locale}/journal/${doc.uid}`
@@ -24,7 +24,7 @@ export const linkResolver = (doc) => {
 
 // Additional helper function for Next/Link components
 export const hrefResolver = (doc) => {
-  const locale = doc.lang !== 'en-us' ? '/' + doc.lang.substring(0,2) : ''
+  const locale = doc.lang !== 'de-ch' ? '/' + doc.lang.substring(0,2) : ''
 
   if (doc.type === 'journal') {
     return `${locale}/journal/[uid]`

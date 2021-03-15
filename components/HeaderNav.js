@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { default as NextLink } from 'next/link'
 import i18next from 'i18next'
@@ -14,7 +14,7 @@ const HeaderNav = ({navActive, setNavActive}) => {
   const isLanding = router.pathname === '/'
   const [isPastHero, setIsPastHero] = useState(false)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isLanding) {
       window.addEventListener('scroll', onScroll)
       return () => window.removeEventListener('scroll', onScroll)
