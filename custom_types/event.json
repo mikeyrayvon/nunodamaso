@@ -1,4 +1,3 @@
-
 {
   "Main" : {
     "uid" : {
@@ -16,10 +15,37 @@
         "useAsTitle" : true
       }
     },
-    "summary" : {
+    "location" : {
       "type" : "Text",
       "config" : {
+        "label" : "Location",
+        "placeholder" : "Town, Region, Country"
+      }
+    },
+    "start_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Start Date"
+      }
+    },
+    "end_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "End Date"
+      }
+    },
+    "summary" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
         "label" : "Summary"
+      }
+    },
+    "tickets_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Tickets Link",
+        "select" : "web"
       }
     },
     "main_image" : {
@@ -60,7 +86,7 @@
             }
           }
         },
-        "label" : "Gallery"
+        "label" : "Gallery (Max 3)"
       }
     }
   }

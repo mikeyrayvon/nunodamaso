@@ -1,60 +1,72 @@
 {
-  "Main": {
-    "title": {
-      "type": "Text",
-      "config": {
-        "label": "Title",
-        "placeholder": "Settings",
-        "useAsTitle": true
+  "Main" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Settings",
+        "useAsTitle" : true
       }
     },
-    "mailchimp_action": {
-      "type": "Text",
-      "config": {
-        "label": "Mailchimp Action",
-        "placeholder": "https://..."
+    "get_started_heading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Get Started Heading"
       }
     },
-    "contact_phone": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Phone"
+    "get_started_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Get Started Text"
       }
     },
-    "contact_email": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Email"
+    "mailchimp_action" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Mailchimp Action",
+        "placeholder" : "https://..."
       }
     },
-    "address": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Address"
+    "contact_phone" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Phone"
       }
     },
-    "google_maps": {
-      "type": "Text",
-      "config": {
-        "label": "Google Maps",
-        "placeholder": "https://..."
+    "contact_email" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Email"
       }
     },
-    "instagram_handle": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Instagram Username"
+    "address" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Address"
       }
     },
-    "footer_contact": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, hyperlink",
-        "label": "Footer Contact"
+    "google_maps" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Google Maps",
+        "placeholder" : "https://..."
+      }
+    },
+    "instagram_handle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Instagram Username"
+      }
+    },
+    "footer_contact" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, hyperlink",
+        "label" : "Footer Contact"
       }
     }
   }

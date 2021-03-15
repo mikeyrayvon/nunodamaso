@@ -8,28 +8,20 @@
         "useAsTitle" : true
       }
     },
-    "summary" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Summary"
-      }
-    },
-    "main_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : null
-        },
-        "thumbnails" : [ ],
-        "label" : "Main Image"
-      }
-    },
     "body" : {
       "type" : "StructuredText",
       "config" : {
         "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
         "allowTargetBlank" : true,
         "label" : "Body"
+      }
+    },
+    "main_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Main Image"
       }
     },
     "practical_examples" : {

@@ -1,77 +1,82 @@
 {
-  "Main": {
-    "title": {
-      "type": "Text",
-      "config": {
-        "label": "Title",
-        "placeholder": "Landing",
-        "useAsTitle": true
+  "Main" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Landing",
+        "useAsTitle" : true
       }
     },
-    "main_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Main image"
+    "main_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Main Image"
       }
     },
-    "intro_heading": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Intro Heading"
+    "intro_heading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Intro Heading"
       }
     },
-    "intro_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em",
-        "label": "Intro Text"
+    "intro_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
+        "label" : "Intro Text"
       }
     },
-    "disciplines_heading": {
-      "type": "Text",
-      "config": {
-        "label": "Disciplines Heading"
+    "disciplines_heading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Disciplines Heading"
       }
     },
-    "disciplines_summary": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em",
-        "label": "Disciplines Summary"
+    "disciplines_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
+        "label" : "Disciplines Text"
       }
     },
-    "disciplines": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "name": {
-            "type": "Text",
-            "config": {
-              "label": "Name"
+    "disciplines_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Disciplines Image"
+      }
+    },
+    "disciplines" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Name"
             }
           },
-          "summary": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, strong, em",
-              "label": "Summary"
+          "summary" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, strong, em",
+              "label" : "Summary"
             }
           },
-          "more_reading": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "customtypes": [
-                "journal"
-              ],
-              "label": "More reading"
+          "more_reading" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "journal" ],
+              "label" : "More reading"
             }
           }
         },
-        "label": "Disciplines"
+        "label" : "Disciplines"
       }
     }
   }
