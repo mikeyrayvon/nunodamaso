@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontSize: {
       'xs': ['10px', '12px'],
