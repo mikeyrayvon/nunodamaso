@@ -18,22 +18,22 @@ const LocaleSelect = () => {
         code={'de'}
         path={router.asPath}
         current={router.locale}
-        active={isComponentVisible}
-        handleClick={setIsComponentVisible}
+        isVisible={isComponentVisible}
+        setIsVisible={setIsComponentVisible}
       />
       <LocaleSelectItem
         code={'fr'}
         path={`/fr${router.asPath}`}
         current={router.locale}
-        active={isComponentVisible}
-        handleClick={setIsComponentVisible}
+        isVisible={isComponentVisible}
+        setIsVisible={setIsComponentVisible}
       />
       <LocaleSelectItem
         code={'en'}
         path={`/en${router.asPath}`}
         current={router.locale}
-        active={isComponentVisible}
-        handleClick={setIsComponentVisible}
+        isVisible={isComponentVisible}
+        setIsVisible={setIsComponentVisible}
       />
 
     </div>
