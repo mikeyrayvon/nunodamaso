@@ -19,9 +19,7 @@ const Events = ({ settings, docs, lang, preview }) => {
       <Head>
         <title>Nuno Damaso | { t('events') }</title>
       </Head>
-      {docs && docs.length > 0 &&
-        <EventList docs={docs} />
-      }
+      <EventList docs={docs} />
     </Layout>
   )
 }

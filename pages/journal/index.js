@@ -27,7 +27,7 @@ const Posts = ({ settings, docs, lang, preview }) => {
         </Container>
       </section>
 
-      {docs.length > 0 &&
+      {docs && docs.length > 0 &&
         <PostList docs={docs} />
       }
     </Layout>
