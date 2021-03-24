@@ -6,7 +6,7 @@ import Container from 'components/Container'
 
 const Intro = ({ heading, text }) => {
   return (
-    <section className='bg-blue-light pt-28 pb-20'>
+    <section className='bg-blue-light pt-8 pb-20'>
       <Container>
         <div className='flex flex-wrap -mx-6 lg:flex-nowrap lg:items-end'>
           <div className='w-full px-6 lg:w-1/2 lg:pr-0 pt-8'>

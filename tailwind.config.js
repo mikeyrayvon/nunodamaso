@@ -22,7 +22,8 @@ module.exports = {
       },
       black: '#000000',
       white: '#FFFFFF',
-      gray: '#66798B'
+      gray: '#66798B',
+      transparentGray: 'rgba(68, 74, 76, 0.5)' 
     },
     fontFamily: {
       'sans': '"Alte Haas Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue"',

@@ -35,7 +35,7 @@ const HeaderNav = ({navActive, setNavActive}) => {
   return (
     <div className={'z-10 absolute w-screen transition-colors duration-500 ' + (!isPastHero && isLanding && !navActive ? 'text-white' : 'text-blue')}>
       <Container>
-        <div className='flex -mx-6 uppercase text-sm'>
+        <div className='flex -mx-6 uppercase text-sm lg:text-sm'>
 
           <div className='py-4 lg:py-8 w-1/3 lg:w-1/2 px-8 lg:px-6 relative z-10'>
             <LocaleSelect />
