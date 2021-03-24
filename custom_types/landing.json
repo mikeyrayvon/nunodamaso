@@ -71,7 +71,7 @@
             "type" : "Link",
             "config" : {
               "select" : "document",
-              "customtypes" : [ "journal" ],
+              "customtypes" : [ "practice" ],
               "label" : "More reading"
             }
           }
