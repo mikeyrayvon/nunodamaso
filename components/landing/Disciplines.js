@@ -10,12 +10,12 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
     <section className='bg-white pt-28 pb-20'>
       <Container>
         <div className='flex flex-wrap lg:flex-nowrap -mx-6 mb-16 lg:items-end'>
-          <div className='px-6 w-full lg:w-1/2 mb-4'>
+          <div className='px-6 w-full lg:w-2/5 2xl:w-1/2 mb-4'>
             {heading &&
-              <h2 className='text-xl lg:w-1/2 font-serif'>{heading}</h2>
+              <h2 className='text-xl w-full 2xl:w-1/2 font-serif'>{heading}</h2>
             }
           </div>
-          <div className='px-6 w-full lg:w-1/2 mb-4'>
+          <div className='px-6 w-full lg:w-3/5 2xl:w-1/2 mb-4'>
             {text &&
               RichText.render(text, linkResolver)
             }
@@ -27,13 +27,15 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
               <img src={image.url} />
             }
           </div>
-          <div className='w-full lg:w-1/2 mb-4 flex flex-wrap content-start'>
+          <div className='w-full lg:w-3/5 2xl:w-1/2 mb-4 flex flex-wrap content-start'>
             {disciplines &&
               disciplines.map(({name, summary, more_reading}, index) => {
                 return (
                   <div className='w-full md:w-1/2 mb-16 px-6' key={`landing_disciplines_${index}`}>
                     <h3 className='text-lg mb-4 font-serif font-bold'>{name}</h3>
-                    {RichText.render(summary, linkResolver)}
+                    {summary &&
+                      RichText.render(summary, linkResolver)
+                    }
                     {more_reading.id &&
                       <NextLink href={`/${more_reading.type}/${more_reading.slug}`}>
                         <a className='text-sm text-blue'>Continue reading</a>

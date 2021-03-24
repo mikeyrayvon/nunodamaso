@@ -18,7 +18,7 @@ const Intro = ({ heading, text }) => {
             }
           </div>
           <div className='w-full px-6 lg:w-1/2 lg:pl-0 pt-8'>
-            Graphic
+            <img src='/images/diagram.svg' className='w-full'/>
           </div>
         </div>
       </Container>

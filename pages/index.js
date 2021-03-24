@@ -12,6 +12,7 @@ import Intro from 'components/landing/Intro'
 import Disciplines from 'components/landing/Disciplines'
 
 const Landing = ({ settings, doc, lang, preview }) => {
+  console.log(doc.data)
   return (
     <Layout
       settings={settings}
@@ -25,7 +26,10 @@ const Landing = ({ settings, doc, lang, preview }) => {
       {doc && doc.data &&
         <>
           <Hero image={doc.data.main_image} />
-          <Intro heading={doc.data.intro_heading} text={doc.data.intro_text} />
+          <Intro
+            heading={doc.data.intro_heading}
+            text={doc.data.intro_text}
+          />
           <Disciplines
             heading={doc.data.disciplines_heading}
             text={doc.data.disciplines_text}
