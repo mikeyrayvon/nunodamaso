@@ -12,7 +12,6 @@ import Intro from 'components/landing/Intro'
 import Disciplines from 'components/landing/Disciplines'
 
 const Landing = ({ settings, doc, lang, preview }) => {
-  console.log(doc.data)
   return (
     <Layout
       settings={settings}
@@ -36,11 +35,6 @@ const Landing = ({ settings, doc, lang, preview }) => {
             image={doc.data.disciplines_image}
             disciplines={doc.data.disciplines}
           />
-          <Container>
-            <div className='rich-text'>
-              {RichText.render(doc.data.body, linkResolver)}
-            </div>
-          </Container>
         </>
       }
     </Layout>
