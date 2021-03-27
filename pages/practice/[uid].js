@@ -1,14 +1,12 @@
 import Prismic from 'prismic-javascript'
 import Head from 'next/head'
-import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
-import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
 import Container from 'components/Container'
-import Slider from 'components/Slider'
+import Slices from 'components/slices'
 
 const Practice = ({ settings, doc, preview, lang }) => {
   if (doc && doc.data) {
@@ -18,6 +16,8 @@ const Practice = ({ settings, doc, preview, lang }) => {
     if (doc.data.title) {
       title += ` | ${doc.data.title}`
     }
+
+    console.log(doc.data.body)
 
     return (
       <Layout
@@ -33,9 +33,9 @@ const Practice = ({ settings, doc, preview, lang }) => {
           <div className='pt-36'>
             <Container>
               <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
-              <div className='rich-text post-content'>
-                {RichText.render(doc.data.body, linkResolver)}
-              </div>
+              {doc.data.body &&
+                <Slices slices={doc.data.body} />
+              }
             </Container>
           </div>
         }
