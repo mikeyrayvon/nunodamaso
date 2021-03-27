@@ -1,5 +1,3 @@
-import { RichText } from 'prismic-reactjs'
-
 import { useTranslation } from 'react-i18next'
 
 import Container from 'components/Container'
