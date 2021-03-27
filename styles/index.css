@@ -34,6 +34,15 @@ html, body {
   @apply w-5/6 max-w-prose;
 }
 
+.post-content p.block-img {
+  @apply w-full max-w-none my-16;
+}
+
+p.block-img img {
+  @apply max-w-screen-lg block mx-auto;
+  max-height: 110vh;
+}
+
 .swiper-container {
   overflow: visible;
 }
