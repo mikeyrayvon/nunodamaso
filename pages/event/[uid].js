@@ -78,7 +78,8 @@ export async function getStaticPaths() {
   );
   return {
     paths: documents.map((doc) => {
-      return { params: { uid: doc.uid }, locale: doc.lang.slice(0, 2) };
+      const locale = doc.lang.substring(0,2)
+      return { params: { uid: doc.uid }, locale };
     }),
     fallback: false,
   };
