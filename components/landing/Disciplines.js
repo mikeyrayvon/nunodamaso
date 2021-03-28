@@ -1,11 +1,13 @@
 import { RichText } from 'prismic-reactjs'
 import { default as NextLink } from 'next/link'
+import { useTranslation } from 'react-i18next'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import Container from 'components/Container'
 
 const Disciplines = ({ heading, text, image, disciplines }) => {
+  const { t } = useTranslation()
   return (
     <section className='bg-white pt-28 pb-20'>
       <Container>
@@ -38,7 +40,7 @@ const Disciplines = ({ heading, text, image, disciplines }) => {
                     }
                     {more_reading.id &&
                       <NextLink href={`/${more_reading.type}/${more_reading.slug}`}>
-                        <a className='text-sm text-blue'>Continue reading</a>
+                        <a className='text-sm text-blue'>{ t('continue-reading') }</a>
                       </NextLink>
                     }
                   </div>
