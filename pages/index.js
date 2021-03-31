@@ -12,7 +12,7 @@ import Intro from 'components/landing/Intro'
 import PracticeList from 'components/PracticeList'
 
 const Landing = ({ settings, doc, lang, preview }) => {
-  console.log(doc)
+
   return (
     <Layout
       settings={settings}

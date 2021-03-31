@@ -18,7 +18,7 @@ const Practice = ({ settings, doc, landing, preview, lang }) => {
     if (doc.data.title) {
       title += ` | ${doc.data.title}`
     }
-    console.log(landing)
+
     return (
       <Layout
         settings={settings}
