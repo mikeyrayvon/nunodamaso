@@ -4,14 +4,15 @@ import Container from 'components/Container'
 
 const PracticalExamples = ({ doc }) => {
   const { t } = useTranslation()
+  
   if (doc.data.practical_examples[0].example) {
     return (
       <section className='bg-blue-lightest pt-28 pb-20'>
         <Container>
-          {doc.data.examples_title &&
+          {doc.data.examples_heading &&
             <div className='flex flex-wrap -mx-6 mb-12'>
               <div className='w-full px-6'>
-                <h2 className='text-xl text-blue-dark font-serif'>{ doc.data.examples_title }</h2>
+                <h2 className='text-xl text-blue-dark font-serif'>{ doc.data.examples_heading }</h2>
               </div>
             </div>
           }
