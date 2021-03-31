@@ -43,8 +43,10 @@ export async function getStaticProps({
 
   const { ref } = previewData
   const isPreview = preview || false
+  const country = locale === 'en' ? '-us' : '-ch'
+  const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const docs = await Client().query(
     Prismic.Predicates.at('document.type', 'journal'), {
@@ -55,7 +57,7 @@ export async function getStaticProps({
         'journal.main_image',
         'journal.summary'
       ],
-      ...(ref ? { ref } : null)
+      ...(ref ? { ref, lang: localeCode } : { lang: localeCode })
     },
   ).catch(error => {
     console.log(error)
@@ -74,7 +76,8 @@ export async function getStaticProps({
       lang:{
         currentLang,
         isMainLanguage,
-      }
+      },
+      i18nNamespaces: ['default']
     }
   }
 }

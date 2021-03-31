@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import NavTrigger from './NavTrigger'
 import HeaderNav from './HeaderNav'
-import MobileNav from './MobileNav'
 
 const Header = ({ settings }) => {
   const [navActive, setNavActive] = useState(false)

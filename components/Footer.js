@@ -50,12 +50,12 @@ const Footer = ({ settings }) => {
           <nav className='w-full md:w-1/2 flex flex-wrap text-blue'>
             <ul>
               <li className='px-6 mb-1'>
-                <NextLink href={'/philosophy'}>
+                <NextLink href={'/philosophie'}>
                   <a className='hover:underline'>{ t('philosophy') }</a>
                 </NextLink>
               </li>
               <li className='px-6 mb-1'>
-                <NextLink href={'/history'}>
+                <NextLink href={'/historie'}>
                   <a className='hover:underline'>{ t('history') }</a>
                 </NextLink>
               </li>
@@ -65,7 +65,7 @@ const Footer = ({ settings }) => {
                 </NextLink>
               </li>
               <li className='px-6 mb-1'>
-                <NextLink href={'/events'}>
+                <NextLink href={'/kalendar'}>
                   <a className='hover:underline'>{ t('events') }</a>
                 </NextLink>
               </li>

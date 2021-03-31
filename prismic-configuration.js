@@ -16,7 +16,10 @@ export const linkResolver = (doc) => {
     return `${locale}/journal/${doc.uid}`
   }
   if (doc.type === 'event') {
-    return `${locale}/events/${doc.uid}`
+    return `${locale}/kalendar/${doc.uid}`
+  }
+  if (doc.type === 'practice') {
+    return `${locale}/praktiken/${doc.uid}`
   }
 
   return '/'
@@ -30,7 +33,10 @@ export const hrefResolver = (doc) => {
     return `${locale}/journal/[uid]`
   }
   if (doc.type === 'event') {
-    return `${locale}/events/[uid]`
+    return `${locale}/kalendar/[uid]`
+  }
+  if (doc.type === 'practice') {
+    return `${locale}/praktiken/[uid]`
   }
 
   return '/'

@@ -45,18 +45,20 @@ const HeaderNav = ({navActive, setNavActive}) => {
             filter: (!isPastHero && isLanding && !navActive ? 'invert(100%)' : 'invert(0%)'),
             transition: 'filter 500ms linear'
           }}>
-            <a href='/'><img src='/images/logo.svg' className='inline w-6 md:w-7 lg:w-8 xl:w-10'/></a>
+            <NextLink href={'/'}>
+              <a><img src='/images/logo.svg' className='inline w-6 md:w-7 lg:w-8 xl:w-10'/></a>
+            </NextLink>
           </div>
 
           <nav className={'opacity-0 pointer-events-none fixed z-0 inset-0 bg-white pt-20 transition transform scale-90 lg:relative lg:inset-auto lg:py-8 lg:flex-grow lg:w-1/2 lg:block lg:opacity-100 lg:transition-none lg:pointer-events-auto lg:bg-transparent lg:-mr-4' + (navActive ? ' opacity-100 scale-100 pointer-events-auto' : '')}>
             <ul className='flex flex-col h-full justify-center lg:flex-row lg:justify-end text-lg lg:text-sm'>
               <li className='mb-12 text-center lg:pl-6 lg:pr-4'>
-                <NextLink href={'/philosophy'}>
+                <NextLink href={'/philosophie'}>
                   <a className='hover:underline'>{ t('philosophy') }</a>
                 </NextLink>
               </li>
               <li className='mb-12 text-center lg:px-4'>
-                <NextLink href={'/history'}>
+                <NextLink href={'/historie'}>
                   <a className='hover:underline'>{ t('history') }</a>
                 </NextLink>
               </li>
@@ -66,8 +68,8 @@ const HeaderNav = ({navActive, setNavActive}) => {
                 </NextLink>
               </li>
               <li className='mb-12 text-center lg:pl-4 lg:pr-6'>
-                <NextLink href={'/events'}>
-                  <a className='hover:underline'>{ t('event') }</a>
+                <NextLink href={'/kalendar'}>
+                  <a className='hover:underline'>{ t('events') }</a>
                 </NextLink>
               </li>
             </ul>

@@ -21,10 +21,10 @@ const Philosophy = ({ settings, doc, lang, preview }) => {
         <title>Nuno Damaso | { t('philosophy') }</title>
       </Head>
       {doc && doc.data &&
-        <div className='pt-36'>
+        <section className='pt-36'>
           <MainContent doc={doc} />
           <PracticalExamples doc={doc} />
-        </div>
+        </section>
       }
     </Layout>
   )
@@ -42,7 +42,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const doc = await Client().getSingle('philosophy', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 

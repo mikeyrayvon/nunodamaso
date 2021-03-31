@@ -9,9 +9,10 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 import Hero from 'components/landing/Hero'
 import Intro from 'components/landing/Intro'
-import Disciplines from 'components/landing/Disciplines'
+import PracticeList from 'components/PracticeList'
 
 const Landing = ({ settings, doc, lang, preview }) => {
+  console.log(doc)
   return (
     <Layout
       settings={settings}
@@ -29,11 +30,11 @@ const Landing = ({ settings, doc, lang, preview }) => {
             heading={doc.data.intro_heading}
             text={doc.data.intro_text}
           />
-          <Disciplines
+          <PracticeList
             heading={doc.data.disciplines_heading}
             text={doc.data.disciplines_text}
             image={doc.data.disciplines_image}
-            disciplines={doc.data.disciplines}
+            practices={doc.data.disciplines}
           />
         </>
       }
@@ -53,7 +54,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const doc = await Client().getSingle('landing', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 

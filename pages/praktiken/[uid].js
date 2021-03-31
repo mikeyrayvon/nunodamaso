@@ -8,8 +8,9 @@ import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
 import Container from 'components/Container'
+import PracticeList from 'components/PracticeList'
 
-const Practice = ({ settings, doc, preview, lang }) => {
+const Practice = ({ settings, doc, landing, preview, lang }) => {
   if (doc && doc.data) {
 
     let title = 'Nuno Damaso'
@@ -17,9 +18,7 @@ const Practice = ({ settings, doc, preview, lang }) => {
     if (doc.data.title) {
       title += ` | ${doc.data.title}`
     }
-
-    console.log(doc.data.body)
-
+    console.log(landing)
     return (
       <Layout
         settings={settings}
@@ -30,17 +29,22 @@ const Practice = ({ settings, doc, preview, lang }) => {
         <Head>
           <title>{title}</title>
         </Head>
-        {doc && doc.data &&
-          <div className='pt-36'>
-            <Container>
-              <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
-              {doc.data.body &&
-                <div className='rich-text post-content'>
-                  {RichText.render(doc.data.body, linkResolver)}
-                </div>
-              }
-            </Container>
-          </div>
+        <section className='pt-36'>
+          <Container>
+            <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
+            {doc.data.body &&
+              <div className='rich-text post-content'>
+                {RichText.render(doc.data.body, linkResolver)}
+              </div>
+            }
+          </Container>
+        </section>
+        {landing && landing.data &&
+          <PracticeList
+            heading={landing.data.disciplines_heading}
+            text={landing.data.disciplines_text}
+            practices={landing.data.disciplines}
+          />
         }
       </Layout>
     );
@@ -62,9 +66,20 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const doc = await Client().getByUID('practice', params.uid, ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
+
+  const landingFetch = ['landing.disciplines_heading', 'landing.disciplines_text', 'landing.disciplines']
+
+  const landing = await Client().getSingle('landing', ref ? {
+    ref,
+    lang: localeCode,
+    fetch: landingFetch
+  } : {
+    lang: localeCode,
+    fetch: landingFetch
+  }) || {}
 
   const { currentLang, isMainLanguage} = manageLocale(locales, localeCode)
 
@@ -72,6 +87,7 @@ export async function getStaticProps({
     props: {
       settings,
       doc,
+      landing,
       preview: {
         isActive: isPreview,
         activeRef: ref ? ref : null,
@@ -79,7 +95,8 @@ export async function getStaticProps({
       lang:{
         currentLang,
         isMainLanguage,
-      }
+      },
+      i18nNamespaces: ['default']
     }
   }
 }

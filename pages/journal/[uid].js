@@ -29,16 +29,14 @@ const Post = ({ settings, doc, preview, lang }) => {
         <Head>
           <title>{title}</title>
         </Head>
-        {doc && doc.data &&
-          <div className='pt-36'>
-            <Container>
-              <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
-              <div className='rich-text post-content'>
-                {RichText.render(doc.data.body, linkResolver)}
-              </div>
-            </Container>
-          </div>
-        }
+        <section className='pt-36'>
+          <Container>
+            <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
+            <div className='rich-text post-content'>
+              {RichText.render(doc.data.body, linkResolver)}
+            </div>
+          </Container>
+        </section>
       </Layout>
     );
   }
@@ -59,7 +57,7 @@ export async function getStaticProps({
   const country = locale === 'en' ? '-us' : '-ch'
   const localeCode = locale + country
 
-  const settings = await Client().getSingle('settings') || {}
+  const settings = await Client().getSingle('settings', ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
   const doc = await Client().getByUID('journal', params.uid, ref ? { ref, lang: localeCode } : { lang: localeCode }) || {}
 
@@ -76,7 +74,8 @@ export async function getStaticProps({
       lang:{
         currentLang,
         isMainLanguage,
-      }
+      },
+      i18nNamespaces: ['default']
     }
   }
 }
