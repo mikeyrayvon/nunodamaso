@@ -7,8 +7,7 @@ class MyDocument extends Document {
     return { ...initialProps }
   }
 
-  render(initialProps) {
-    console.log(initialProps)
+  render() {
     return (
       <Html>
         <Head>
