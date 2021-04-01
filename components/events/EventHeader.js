@@ -47,7 +47,7 @@ const EventHeader = ({ doc }) => {
             }
             {summary &&
               <div className='rich-text mb-6'>
-                {RichText.render(summary, linkResolver)}
+                <p>{summary}</p>
               </div>
             }
             {tickets_link && tickets_link.url &&

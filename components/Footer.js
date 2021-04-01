@@ -66,7 +66,7 @@ const Footer = ({ settings }) => {
               </li>
               <li className='px-6 mb-1'>
                 <NextLink href={'/kalendar'}>
-                  <a className='hover:underline'>{ t('events') }</a>
+                  <a className='hover:underline'>{ t('calendar') }</a>
                 </NextLink>
               </li>
             </ul>

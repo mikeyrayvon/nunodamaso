@@ -69,7 +69,7 @@ const HeaderNav = ({navActive, setNavActive}) => {
               </li>
               <li className='mb-12 text-center lg:pl-4 lg:pr-6'>
                 <NextLink href={'/kalendar'}>
-                  <a className='hover:underline'>{ t('events') }</a>
+                  <a className='hover:underline'>{ t('calendar') }</a>
                 </NextLink>
               </li>
             </ul>

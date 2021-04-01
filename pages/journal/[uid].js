@@ -1,5 +1,4 @@
 import Prismic from 'prismic-javascript'
-import Head from 'next/head'
 import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
@@ -7,18 +6,12 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import Container from 'components/Container'
 import Slider from 'components/Slider'
 
 const Post = ({ settings, doc, preview, lang }) => {
   if (doc && doc.data) {
-
-    let title = 'Nuno Damaso'
-
-    if (doc.data.title) {
-      title += ` | ${doc.data.title}`
-    }
-
     return (
       <Layout
         settings={settings}
@@ -26,9 +19,11 @@ const Post = ({ settings, doc, preview, lang }) => {
         isPreview={preview.isActive}
         altLangs={doc.alternate_languages}
       >
-        <Head>
-          <title>{title}</title>
-        </Head>
+        <Seo
+          settings={settings}
+          title={doc.data.title}
+          summary={doc.data.summary}
+        />
         <section className='pt-36'>
           <Container>
             <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>

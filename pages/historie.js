@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
@@ -7,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import Container from 'components/Container'
 
 const History = ({ settings, doc, lang, preview }) => {
@@ -15,13 +15,16 @@ const History = ({ settings, doc, lang, preview }) => {
   return (
     <Layout
       settings={settings}
-      altLangs={doc.alternate_languages}
+      altLangs={doc ? doc.alternate_languages : null}
       lang={lang}
       isPreview={preview.isActive}
     >
-      <Head>
-        <title>Nuno Damaso | { t('history') }</title>
-      </Head>
+      <Seo
+        settings={settings}
+        title={t('history')}
+        summary={doc && doc.data ? doc.data.summary : null}
+        image={doc && doc.data ? doc.data.main_image : null}
+      />
       {doc && doc.data &&
         <section className='pt-36'>
           <Container>

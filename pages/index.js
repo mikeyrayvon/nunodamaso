@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
@@ -10,19 +9,18 @@ import Container from 'components/Container'
 import Hero from 'components/landing/Hero'
 import Intro from 'components/landing/Intro'
 import PracticeList from 'components/PracticeList'
+import Seo from 'components/Seo'
 
 const Landing = ({ settings, doc, lang, preview }) => {
 
   return (
     <Layout
       settings={settings}
-      altLangs={doc.alternate_languages}
+      altLangs={doc ? doc.alternate_languages : null}
       lang={lang}
       isPreview={preview.isActive}
     >
-      <Head>
-        <title>Nuno Damaso</title>
-      </Head>
+      <Seo settings={settings} />
       {doc && doc.data &&
         <>
           <Hero image={doc.data.main_image} />

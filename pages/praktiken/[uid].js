@@ -1,5 +1,4 @@
 import Prismic from 'prismic-javascript'
-import Head from 'next/head'
 import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
@@ -7,28 +6,25 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import Container from 'components/Container'
 import PracticeList from 'components/PracticeList'
 
 const Practice = ({ settings, doc, landing, preview, lang }) => {
-  if (doc && doc.data) {
-
-    let title = 'Nuno Damaso'
-
-    if (doc.data.title) {
-      title += ` | ${doc.data.title}`
-    }
-
-    return (
-      <Layout
+  return (
+    <Layout
+      settings={settings}
+      lang={lang}
+      isPreview={preview.isActive}
+      altLangs={doc ? doc.alternate_languages : null}
+    >
+      <Seo
         settings={settings}
-        lang={lang}
-        isPreview={preview.isActive}
-        altLangs={doc.alternate_languages}
-      >
-        <Head>
-          <title>{title}</title>
-        </Head>
+        title={doc && doc.data ? doc.data.title : null}
+        summary={doc && doc.data ? doc.data.summary : null}
+        image={doc && doc.data ? doc.data.main_image : null}
+      />
+      {doc && doc.data &&
         <section className='pt-36'>
           <Container>
             <h1 className='text-xl sm:text-2xl md:text-3xl text-center mb-20 font-serif'>{ doc.data.title }</h1>
@@ -39,19 +35,17 @@ const Practice = ({ settings, doc, landing, preview, lang }) => {
             }
           </Container>
         </section>
-        {landing && landing.data &&
-          <PracticeList
-            heading={landing.data.disciplines_heading}
-            text={landing.data.disciplines_text}
-            practices={landing.data.disciplines}
-          />
-        }
-      </Layout>
-    );
-  }
-
-  return null;
-};
+      }
+      {landing && landing.data &&
+        <PracticeList
+          heading={landing.data.disciplines_heading}
+          text={landing.data.disciplines_text}
+          practices={landing.data.disciplines}
+        />
+      }
+    </Layout>
+  )
+}
 
 export async function getStaticProps({
   params,

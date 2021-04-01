@@ -6,7 +6,7 @@ import GetStarted from './GetStarted'
 
 const Layout = ({ settings, isPreview, children, altLangs, lang }) => {
   return (
-    <div>
+    <>
       <Header
         settings={settings}
         altLangs={altLangs}
@@ -20,7 +20,7 @@ const Layout = ({ settings, isPreview, children, altLangs, lang }) => {
         <MailchimpForm settings={settings} />
         <Footer settings={settings} />
       </div>
-    </div>
+    </>
   )
 }
 

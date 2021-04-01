@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 import { useTranslation } from 'react-i18next'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import MainContent from 'components/philosophy/MainContent'
 import PracticalExamples from 'components/philosophy/PracticalExamples'
 
@@ -13,13 +13,16 @@ const Philosophy = ({ settings, doc, lang, preview }) => {
   return (
     <Layout
       settings={settings}
-      altLangs={doc.alternate_languages}
+      altLangs={doc ? doc.alternate_languages : null}
       lang={lang}
       isPreview={preview.isActive}
     >
-      <Head>
-        <title>Nuno Damaso | { t('philosophy') }</title>
-      </Head>
+      <Seo
+        settings={settings}
+        title={t('philosophy')}
+        summary={doc && doc.data ? doc.data.summary : null}
+        image={doc && doc.data ? doc.data.main_image : null}
+      />
       {doc && doc.data &&
         <section className='pt-36'>
           <MainContent doc={doc} />

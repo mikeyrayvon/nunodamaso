@@ -1,5 +1,4 @@
 import Prismic from 'prismic-javascript'
-import Head from 'next/head'
 import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
@@ -7,32 +6,31 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import Container from 'components/Container'
 import EventHeader from 'components/events/EventHeader'
 import EventBody from 'components/events/EventBody'
 
 const Event = ({ settings, doc, lang, preview }) => {
-  if (doc === null || doc.data === undefined)
-    return null
-
-  let title = 'Nuno Damaso'
-
-  if (doc.data.title) {
-    title += ` | ${doc.data.title}`
-  }
-
   return (
     <Layout
       settings={settings}
-      altLangs={doc.alternate_languages}
+      altLangs={doc ? doc.alternate_languages : null}
       lang={lang}
       isPreview={preview.isActive}
     >
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <EventHeader doc={doc} />
-      <EventBody doc={doc} />
+      <Seo
+        settings={settings}
+        title={doc && doc.data ? doc.data.title : null}
+        summary={doc && doc.data ? doc.data.summary : null}
+        image={doc && doc.data ? doc.data.main_image : null}
+      />
+      {doc && doc.data &&
+        <>
+          <EventHeader doc={doc} />
+          <EventBody doc={doc} />
+        </>
+      }
     </Layout>
   )
 };

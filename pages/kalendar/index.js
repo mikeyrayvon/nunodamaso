@@ -1,10 +1,10 @@
-import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import { Client, manageLocale } from 'utils/prismicHelpers'
 import { useTranslation } from 'react-i18next'
 
 import Layout from 'components/Layout'
+import Seo from 'components/Seo'
 import EventList from 'components/events/EventList'
 
 const Events = ({ settings, docs, lang, preview }) => {
@@ -16,10 +16,10 @@ const Events = ({ settings, docs, lang, preview }) => {
       lang={lang}
       isPreview={preview.isActive}
     >
-      <Head>
-        <title>Nuno Damaso | { t('events') }</title>
-      </Head>
-      <EventList docs={docs} />
+      <Seo settings={settings} pageTitle={t('calendar')}/>
+      {docs && docs.length > 0 &&
+        <EventList docs={docs} />
+      }
     </Layout>
   )
 }
