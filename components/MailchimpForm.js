@@ -34,16 +34,20 @@ const MailchimpForm = ({ settings }) => {
                       <p className='text-lg text-gray'>{ newsletter_text }</p>
                     }
                   </div>
-                  <div className='flex mb-4'>
-                    <input
-                      ref={node => (email = node)}
-                      type='email'
-                      className='text-lg py-2 focus:outline-none focus:border-blue font-normal border-b-2 border-black flex-grow bg-transparent rounded-none'
-                      placeholder='email'
-                    />
-                    <button className='focus:outline-none ml-4 button py-2 hover:text-blue text-black text-center pr-2' onClick={() => submit(subscribe)}>
-                      <span className="font-normal bg-transparent">{ t('subscribe') }</span>
-                    </button>
+                  <div className='flex mb-4 items-center'>
+                    <div className='flex-grow'>
+                      <input
+                        ref={node => (email = node)}
+                        type='email'
+                        className='text-lg py-2 focus:outline-none focus:border-blue font-normal border-b-2 border-black w-full bg-transparent rounded-none'
+                        placeholder='email'
+                      />
+                    </div>
+                    <div className='pl-4'>
+                      <button className='focus:outline-none button py-2 hover:text-blue text-black text-center' onClick={() => submit(subscribe)}>
+                        <span className="font-normal bg-transparent">{ t('subscribe') }</span>
+                      </button>
+                    </div>
                   </div>
                   <div className='absolute w-full sm:w-2/3 rich-text'>
                     {status === "sending" && <div>{ t('sending') }...</div>}
