@@ -41,7 +41,7 @@ const MailchimpForm = ({ settings }) => {
                       className='text-lg py-2 focus:outline-none focus:border-blue font-normal border-b-2 border-black flex-grow bg-transparent rounded-none'
                       placeholder='email'
                     />
-                    <button className='focus:outline-none ml-4 button py-2 hover:text-blue text-black text-center px-1' onClick={() => submit(subscribe)}>
+                    <button className='focus:outline-none ml-4 button py-2 hover:text-blue text-black text-center pr-2' onClick={() => submit(subscribe)}>
                       <span className="font-normal bg-transparent">{ t('subscribe') }</span>
                     </button>
                   </div>
