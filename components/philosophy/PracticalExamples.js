@@ -32,7 +32,7 @@ const PracticalExamples = ({ doc }) => {
           </ul>
           {doc.data.examples_summary &&
             <div className='flex flex-wrap -mx-6 justify-center'>
-              <div className='w-full lg:w-1/2'>
+              <div className='w-full lg:w-1/2 px-6'>
                 <span>{ doc.data.examples_summary }</span>
               </div>
             </div>
