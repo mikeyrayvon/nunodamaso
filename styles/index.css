@@ -35,11 +35,11 @@ html, body {
 }
 
 .post-content p.block-img {
-  @apply w-full max-w-none my-16;
+  @apply w-full max-w-screen-lg my-16;
 }
 
 p.block-img img {
-  @apply max-w-screen-lg block mx-auto;
+  @apply max-w-full block mx-auto;
   max-height: 110vh;
 }
 
