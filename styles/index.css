@@ -39,7 +39,7 @@ html, body {
 }
 
 p.block-img img {
-  @apply max-w-screen-lg w-full block mx-auto;
+  @apply max-w-screen-lg block mx-auto;
   max-height: 110vh;
 }
 
